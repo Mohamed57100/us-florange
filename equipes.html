@@ -7,7 +7,7 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #f5f5f5;
+      background-color: #f9f9f9;
       margin: 0;
       padding: 0;
       color: #333;
@@ -34,14 +34,14 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 20px;
+      gap: 25px;
       margin: 30px auto;
       max-width: 1000px;
     }
 
     .team {
-      background-color: #ff6600;
-      color: white;
+      background-color: white;
+      color: #ff6600;
       width: 120px;
       height: 120px;
       border-radius: 50%;
@@ -49,16 +49,18 @@
       align-items: center;
       justify-content: center;
       font-weight: bold;
+      border: 4px solid #ff6600;
       cursor: pointer;
-      transition: transform 0.2s, background-color 0.2s;
+      transition: transform 0.2s, background-color 0.2s, color 0.2s;
     }
 
     .team:hover {
-      background-color: #e65c00;
+      background-color: #ff6600;
+      color: white;
       transform: scale(1.1);
     }
 
-    /* Fenêtre popup */
+    /* Popup */
     .popup {
       display: none;
       position: fixed;
@@ -73,11 +75,12 @@
     .popup-content {
       background: white;
       padding: 20px;
-      border-radius: 10px;
+      border-radius: 15px;
       width: 300px;
       text-align: center;
       position: relative;
       animation: fadeIn 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     }
 
     .popup-content h2 {
@@ -88,11 +91,11 @@
     .close-btn {
       position: absolute;
       top: 10px;
-      right: 10px;
+      right: 15px;
       cursor: pointer;
       color: #ff6600;
       font-weight: bold;
-      font-size: 18px;
+      font-size: 20px;
     }
 
     @keyframes fadeIn {
@@ -124,14 +127,17 @@
 
   <main>
     <div class="team-container">
-      <div class="team" onclick="openPopup('U6 / U8 / U9', 'El Majdoub Youssef', '06 32 40 68 85')">U6/U8/U9</div>
-      <div class="team" onclick="openPopup('U7 / Senior A', 'Kaddar Touati', '07 83 33 15 86')">U7/Senior A</div>
+      <div class="team" onclick="openPopup('U6', 'El Majdoub Youssef', '06 32 40 68 85')">U6</div>
+      <div class="team" onclick="openPopup('U7', 'Kaddar Touati', '07 83 33 15 86')">U7</div>
+      <div class="team" onclick="openPopup('U8', 'El Majdoub Youssef', '06 32 40 68 85')">U8</div>
+      <div class="team" onclick="openPopup('U9', 'El Majdoub Youssef', '06 32 40 68 85')">U9</div>
       <div class="team" onclick="openPopup('U10', 'Camacho Cueva Nixon', '06 45 32 85 56')">U10</div>
       <div class="team" onclick="openPopup('U11', 'Bouhnaida Yacine', '06 49 57 54 49')">U11</div>
       <div class="team" onclick="openPopup('U12', 'Salihi Faysal', '06 49 57 54 49')">U12</div>
       <div class="team" onclick="openPopup('U13', 'Barmashi Franci', '06 55 08 89 39')">U13</div>
       <div class="team" onclick="openPopup('U13 Féminines', 'Alem Mehdi', '06 82 64 42 21')">U13F</div>
       <div class="team" onclick="openPopup('U14', 'Doebler Florian', '06 59 41 10 15')">U14</div>
+      <div class="team" onclick="openPopup('Senior A', 'Kaddar Touati', '07 83 33 15 86')">Senior A</div>
       <div class="team" onclick="openPopup('Senior B', 'Barbacci Stephane', '06 82 32 00 77')">Senior B</div>
       <div class="team" onclick="openPopup('Senior Féminines', 'Derouette Mickael', '06 19 74 27 27')">Senior F</div>
     </div>
