@@ -3,109 +3,141 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>US Florange-Ébange | Contact</title>
+  <title>Contact - U.S. Florange-Ébange</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: linear-gradient(180deg, #fff, #ffe5cc);
+      background-color: #f9f9f9;
       margin: 0;
+      padding: 0;
+      color: #333;
       text-align: center;
-      color: #222;
     }
+
     header {
-      background-color: orange;
+      background-color: #ff6600;
       color: white;
-      padding: 20px 10px;
+      padding: 20px 0;
     }
+
     header img {
-      width: 120px;
-      height: auto;
+      width: 100px;
       border-radius: 50%;
-      display: block;
-      margin: 0 auto 10px;
+      margin-bottom: 10px;
     }
-    nav {
-      background-color: #222;
-      padding: 12px 0;
+
+    h1 {
+      margin: 10px 0;
     }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 20px;
-      font-weight: bold;
-      transition: 0.3s;
+
+    .contact-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 25px;
+      margin: 40px auto;
+      max-width: 800px;
     }
-    nav a:hover {
-      color: orange;
+
+    .card {
+      background-color: white;
+      border: 3px solid #ff6600;
+      border-radius: 20px;
+      padding: 20px;
+      width: 80%;
+      max-width: 400px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s;
     }
-    main {
-      padding: 40px 15px;
-      max-width: 700px;
-      margin: 0 auto;
+
+    .card:hover {
+      transform: scale(1.03);
     }
-    .contact-card {
-      background: white;
-      border: 2px solid orange;
-      border-radius: 12px;
-      padding: 25px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      text-align: left;
+
+    .card h2 {
+      color: #ff6600;
+      margin-bottom: 10px;
     }
-    .contact-card h3 {
-      color: orange;
-      margin-top: 0;
-    }
+
     a {
-      color: orange;
+      color: #ff6600;
       text-decoration: none;
       font-weight: bold;
     }
+
     a:hover {
       text-decoration: underline;
     }
+
+    iframe {
+      border: 3px solid #ff6600;
+      border-radius: 20px;
+      width: 90%;
+      height: 350px;
+    }
+
     footer {
-      background-color: orange;
+      background-color: #ff6600;
       color: white;
       padding: 15px;
       margin-top: 40px;
     }
+
+    footer a {
+      color: white;
+      text-decoration: none;
+    }
+
   </style>
 </head>
 <body>
+
   <header>
-    <img src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/465817372_1057114252579709_1675475728144681515_n.jpg" 
-         alt="Logo US Florange-Ébange">
+    <img src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/465817372_1057114252579709_1675475728144681515_n.jpg" alt="Logo U.S. Florange">
     <h1>Contact</h1>
-    <p>Rejoignez la grande famille de l'U.S. Florange-Ébange ⚽</p>
+    <p><a href="index.html" style="color:white;">← Retour à l'accueil</a></p>
   </header>
 
-  <nav>
-    <a href="index.html">Accueil</a>
-    <a href="equipes.html">Équipes</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-
   <main>
-    <div class="contact-card">
-      <h3>📍 Adresse :</h3>
-      <p>Stade du Haut-Kême<br>Rue du Haut-Kême, 57190 Florange</p>
+    <div class="contact-container">
+      
+      <div class="card">
+        <h2>📍 Adresse du club</h2>
+        <p>U.S. Florange-Ébange</p>
+        <p><strong>6 rue du gymnase, 57190 Florange</strong></p>
+      </div>
 
-      <h3>📞 Téléphone :</h3>
-      <p><a href="tel:+33382589300">03 82 58 93 00</a></p>
+      <div class="card">
+        <h2>📞 Contact principal</h2>
+        <p><strong>Téléphone :</strong> 06 12 34 56 78</p>
+        <p><strong>Email :</strong> usflorange.ebange@gmail.com</p>
+      </div>
 
-      <h3>📧 Email :</h3>
-      <p><a href="mailto:usflorange@gmail.com">usflorange@gmail.com</a></p>
+      <div class="card">
+        <h2>🌐 Réseaux sociaux</h2>
+        <p>
+          <a href="https://www.instagram.com/us_florange_ebange/" target="_blank">Instagram</a> |
+          <a href="https://www.facebook.com/UnionSportiveFlorangeEbange" target="_blank">Facebook</a>
+        </p>
+      </div>
 
-      <h3>🔗 Réseaux sociaux :</h3>
-      <p>
-        <a href="https://www.instagram.com/us_florange_ebange/" target="_blank">Instagram</a> |
-        <a href="https://www.facebook.com/UnionSportiveFlorangeEbange" target="_blank">Facebook</a>
-      </p>
+      <div class="card">
+        <h2>🗺️ Localisation</h2>
+        <iframe 
+          src="https://www.google.com/maps?q=6+rue+du+gymnase+Florange&output=embed" 
+          allowfullscreen="">
+        </iframe>
+      </div>
+
     </div>
   </main>
 
   <footer>
-    <p>© 2025 U.S. Florange-Ébange – Tous droits réservés</p>
+    <p>© 2025 U.S. Florange-Ébange | 
+      <a href="https://www.instagram.com/us_florange_ebange/">Instagram</a> | 
+      <a href="https://www.facebook.com/UnionSportiveFlorangeEbange">Facebook</a>
+    </p>
   </footer>
+
 </body>
 </html>
