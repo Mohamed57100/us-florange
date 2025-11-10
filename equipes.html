@@ -11,119 +11,161 @@
       margin: 0;
       padding: 0;
       color: #333;
+      text-align: center;
     }
+
     header {
       background-color: #ff6600;
       color: white;
-      text-align: center;
       padding: 20px 0;
     }
+
     header img {
       width: 100px;
       border-radius: 50%;
       margin-bottom: 10px;
     }
+
     h1 {
       margin: 10px 0;
     }
-    main {
-      padding: 20px;
+
+    .team-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin: 30px auto;
+      max-width: 1000px;
     }
+
     .team {
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-      margin-bottom: 20px;
-      padding: 15px;
-    }
-    .team h2 {
-      color: #ff6600;
-      margin-bottom: 5px;
-    }
-    footer {
-      text-align: center;
       background-color: #ff6600;
       color: white;
-      padding: 10px 0;
-      margin-top: 30px;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.2s, background-color 0.2s;
     }
-    a {
+
+    .team:hover {
+      background-color: #e65c00;
+      transform: scale(1.1);
+    }
+
+    /* Fenêtre popup */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      justify-content: center;
+      align-items: center;
+      z-index: 10;
+    }
+
+    .popup-content {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      width: 300px;
+      text-align: center;
+      position: relative;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .popup-content h2 {
+      color: #ff6600;
+      margin-bottom: 10px;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+      color: #ff6600;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    footer {
+      background-color: #ff6600;
+      color: white;
+      padding: 15px;
+      margin-top: 40px;
+    }
+
+    footer a {
       color: white;
       text-decoration: none;
     }
+
   </style>
 </head>
 <body>
+
   <header>
-    <img src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/465817372_1057114252579709_1675475728144681515_n.jpg" alt="Logo U.S. Florange-Ébange">
+    <img src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/465817372_1057114252579709_1675475728144681515_n.jpg" alt="Logo U.S. Florange">
     <h1>Nos Équipes</h1>
-    <p><a href="index.html">← Retour à l'accueil</a></p>
+    <p><a href="index.html" style="color:white;">← Retour à l'accueil</a></p>
   </header>
 
   <main>
-    <div class="team">
-      <h2>U6 / U8 / U9</h2>
-      <p><strong>Coach :</strong> El Majdoub Youssef</p>
-      <p><strong>Téléphone :</strong> 06 32 40 68 85</p>
-    </div>
-
-    <div class="team">
-      <h2>U7 / Senior A</h2>
-      <p><strong>Coach :</strong> Kaddar Touati</p>
-      <p><strong>Téléphone :</strong> 07 83 33 15 86</p>
-    </div>
-
-    <div class="team">
-      <h2>U10</h2>
-      <p><strong>Coach :</strong> Camacho Cueva Nixon</p>
-      <p><strong>Téléphone :</strong> 06 45 32 85 56</p>
-    </div>
-
-    <div class="team">
-      <h2>U11</h2>
-      <p><strong>Coach :</strong> Bouhnaida Yacine</p>
-      <p><strong>Téléphone :</strong> 06 49 57 54 49</p>
-    </div>
-
-    <div class="team">
-      <h2>U12</h2>
-      <p><strong>Coach :</strong> Salihi Faysal</p>
-      <p><strong>Téléphone :</strong> 06 49 57 54 49</p>
-    </div>
-
-    <div class="team">
-      <h2>U13</h2>
-      <p><strong>Coach :</strong> Barmashi Franci</p>
-      <p><strong>Téléphone :</strong> 06 55 08 89 39</p>
-    </div>
-
-    <div class="team">
-      <h2>U13 Féminines</h2>
-      <p><strong>Coach :</strong> Alem Mehdi</p>
-      <p><strong>Téléphone :</strong> 06 82 64 42 21</p>
-    </div>
-
-    <div class="team">
-      <h2>U14</h2>
-      <p><strong>Coach :</strong> Doebler Florian</p>
-      <p><strong>Téléphone :</strong> 06 59 41 10 15</p>
-    </div>
-
-    <div class="team">
-      <h2>Senior B</h2>
-      <p><strong>Coach :</strong> Barbacci Stephane</p>
-      <p><strong>Téléphone :</strong> 06 82 32 00 77</p>
-    </div>
-
-    <div class="team">
-      <h2>Senior Féminines</h2>
-      <p><strong>Coach :</strong> Derouette Mickael</p>
-      <p><strong>Téléphone :</strong> 06 19 74 27 27</p>
+    <div class="team-container">
+      <div class="team" onclick="openPopup('U6 / U8 / U9', 'El Majdoub Youssef', '06 32 40 68 85')">U6/U8/U9</div>
+      <div class="team" onclick="openPopup('U7 / Senior A', 'Kaddar Touati', '07 83 33 15 86')">U7/Senior A</div>
+      <div class="team" onclick="openPopup('U10', 'Camacho Cueva Nixon', '06 45 32 85 56')">U10</div>
+      <div class="team" onclick="openPopup('U11', 'Bouhnaida Yacine', '06 49 57 54 49')">U11</div>
+      <div class="team" onclick="openPopup('U12', 'Salihi Faysal', '06 49 57 54 49')">U12</div>
+      <div class="team" onclick="openPopup('U13', 'Barmashi Franci', '06 55 08 89 39')">U13</div>
+      <div class="team" onclick="openPopup('U13 Féminines', 'Alem Mehdi', '06 82 64 42 21')">U13F</div>
+      <div class="team" onclick="openPopup('U14', 'Doebler Florian', '06 59 41 10 15')">U14</div>
+      <div class="team" onclick="openPopup('Senior B', 'Barbacci Stephane', '06 82 32 00 77')">Senior B</div>
+      <div class="team" onclick="openPopup('Senior Féminines', 'Derouette Mickael', '06 19 74 27 27')">Senior F</div>
     </div>
   </main>
 
+  <!-- Popup -->
+  <div class="popup" id="popup">
+    <div class="popup-content">
+      <span class="close-btn" onclick="closePopup()">×</span>
+      <h2 id="teamName"></h2>
+      <p><strong>Coach :</strong> <span id="coachName"></span></p>
+      <p><strong>Téléphone :</strong> <span id="coachPhone"></span></p>
+    </div>
+  </div>
+
   <footer>
-    <p>© 2025 U.S. Florange-Ébange | <a href="https://www.instagram.com/us_florange_ebange/">Instagram</a> | <a href="https://www.facebook.com/UnionSportiveFlorangeEbange">Facebook</a></p>
+    <p>© 2025 U.S. Florange-Ébange | 
+      <a href="https://www.instagram.com/us_florange_ebange/">Instagram</a> | 
+      <a href="https://www.facebook.com/UnionSportiveFlorangeEbange">Facebook</a>
+    </p>
   </footer>
+
+  <script>
+    function openPopup(team, coach, phone) {
+      document.getElementById('teamName').textContent = team;
+      document.getElementById('coachName').textContent = coach;
+      document.getElementById('coachPhone').textContent = phone;
+      document.getElementById('popup').style.display = 'flex';
+    }
+
+    function closePopup() {
+      document.getElementById('popup').style.display = 'none';
+    }
+  </script>
+
 </body>
 </html>
