@@ -3,33 +3,81 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>US Florange - Contact</title>
+  <title>US Florange-Ébange | Contact</title>
   <style>
     body {
-      background-color: white;
-      color: black;
       font-family: Arial, sans-serif;
+      background: linear-gradient(180deg, #fff, #ffe5cc);
+      margin: 0;
       text-align: center;
+      color: #222;
     }
     header {
       background-color: orange;
       color: white;
-      padding: 20px;
-      font-size: 24px;
+      padding: 20px 10px;
+    }
+    header img {
+      width: 120px;
+      height: auto;
+      border-radius: 50%;
+      display: block;
+      margin: 0 auto 10px;
+    }
+    nav {
+      background-color: #222;
+      padding: 12px 0;
     }
     nav a {
-      margin: 15px;
+      color: white;
       text-decoration: none;
-      color: orange;
+      margin: 0 20px;
       font-weight: bold;
+      transition: 0.3s;
     }
     nav a:hover {
+      color: orange;
+    }
+    main {
+      padding: 40px 15px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .contact-card {
+      background: white;
+      border: 2px solid orange;
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: left;
+    }
+    .contact-card h3 {
+      color: orange;
+      margin-top: 0;
+    }
+    a {
+      color: orange;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    a:hover {
       text-decoration: underline;
+    }
+    footer {
+      background-color: orange;
+      color: white;
+      padding: 15px;
+      margin-top: 40px;
     }
   </style>
 </head>
 <body>
-  <header>⚽ US Florange</header>
+  <header>
+    <img src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/465817372_1057114252579709_1675475728144681515_n.jpg" 
+         alt="Logo US Florange-Ébange">
+    <h1>Contact</h1>
+    <p>Rejoignez la grande famille de l'U.S. Florange-Ébange ⚽</p>
+  </header>
 
   <nav>
     <a href="index.html">Accueil</a>
@@ -37,9 +85,27 @@
     <a href="contact.html">Contact</a>
   </nav>
 
-  <h1>Contact du club</h1>
-  <p>📍 Adresse : Stade de Florange, 57190 Florange</p>
-  <p>📧 Email : usflorange@gmail.com</p>
-  <p>📞 Téléphone : 06 12 34 56 78</p>
+  <main>
+    <div class="contact-card">
+      <h3>📍 Adresse :</h3>
+      <p>Stade du Haut-Kême<br>Rue du Haut-Kême, 57190 Florange</p>
+
+      <h3>📞 Téléphone :</h3>
+      <p><a href="tel:+33382589300">03 82 58 93 00</a></p>
+
+      <h3>📧 Email :</h3>
+      <p><a href="mailto:usflorange@gmail.com">usflorange@gmail.com</a></p>
+
+      <h3>🔗 Réseaux sociaux :</h3>
+      <p>
+        <a href="https://www.instagram.com/usflorangeofficiel" target="_blank">Instagram</a> |
+        <a href="https://www.facebook.com/usflorange" target="_blank">Facebook</a>
+      </p>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 U.S. Florange-Ébange – Tous droits réservés</p>
+  </footer>
 </body>
 </html>
