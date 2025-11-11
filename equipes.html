@@ -30,12 +30,35 @@
       margin: 10px 0;
     }
 
+    /* Boutons de catégorie */
+    .category-buttons {
+      margin: 25px 0;
+    }
+
+    .category-buttons button {
+      background-color: #ff6600;
+      border: none;
+      color: white;
+      padding: 12px 20px;
+      margin: 0 10px;
+      border-radius: 25px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .category-buttons button:hover,
+    .category-buttons button.active {
+      background-color: #cc5200;
+      transform: scale(1.05);
+    }
+
     .team-container {
-      display: flex;
+      display: none;
       flex-wrap: wrap;
       justify-content: center;
       gap: 25px;
-      margin: 30px auto;
+      margin: 20px auto;
       max-width: 1000px;
     }
 
@@ -88,6 +111,13 @@
       margin-bottom: 10px;
     }
 
+    .popup-content img {
+      width: 100%;
+      max-width: 250px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
     .close-btn {
       position: absolute;
       top: 10px;
@@ -125,23 +155,37 @@
     <p><a href="index.html" style="color:white;">← Retour à l'accueil</a></p>
   </header>
 
-  <main>
-    <div class="team-container">
-      <div class="team" onclick="openPopup('U6', 'El Majdoub Youssef', '06 32 40 68 85')">U6</div>
-      <div class="team" onclick="openPopup('U7', 'Kaddar Touati', '07 83 33 15 86')">U7</div>
-      <div class="team" onclick="openPopup('U8', 'El Majdoub Youssef', '06 32 40 68 85')">U8</div>
-      <div class="team" onclick="openPopup('U9', 'El Majdoub Youssef', '06 32 40 68 85')">U9</div>
-      <div class="team" onclick="openPopup('U10', 'Camacho Cueva Nixon', '06 45 32 85 56')">U10</div>
-      <div class="team" onclick="openPopup('U11', 'Bouhnaida Yacine', '06 49 57 54 49')">U11</div>
-      <div class="team" onclick="openPopup('U12', 'Salihi Faysal', '06 49 57 54 49')">U12</div>
-      <div class="team" onclick="openPopup('U13', 'Barmashi Franci', '06 55 08 89 39')">U13</div>
-      <div class="team" onclick="openPopup('U13 Féminines', 'Alem Mehdi', '06 82 64 42 21')">U13F</div>
-      <div class="team" onclick="openPopup('U14', 'Doebler Florian', '06 59 41 10 15')">U14</div>
-      <div class="team" onclick="openPopup('Senior A', 'Kaddar Touati', '07 83 33 15 86')">Senior A</div>
-      <div class="team" onclick="openPopup('Senior B', 'Barbacci Stephane', '06 82 32 00 77')">Senior B</div>
-      <div class="team" onclick="openPopup('Senior Féminines', 'Derouette Mickael', '06 19 74 27 27')">Senior F</div>
-    </div>
-  </main>
+  <!-- Boutons -->
+  <div class="category-buttons">
+    <button onclick="showCategory('ecole')" class="active">École de Foot</button>
+    <button onclick="showCategory('prefo')">Préformation</button>
+    <button onclick="showCategory('seniors')">Séniors</button>
+  </div>
+
+  <!-- École de foot -->
+  <div class="team-container" id="ecole">
+    <div class="team" onclick="openPopup('U6', 'El Majdoub Youssef', '06 32 40 68 85')">U6</div>
+    <div class="team" onclick="openPopup('U7', 'Kaddar Touati', '07 83 33 15 86')">U7</div>
+    <div class="team" onclick="openPopup('U8', 'El Majdoub Youssef', '06 32 40 68 85')">U8</div>
+    <div class="team" onclick="openPopup('U9', 'El Majdoub Youssef', '06 32 40 68 85')">U9</div>
+    <div class="team" onclick="openPopup('U10', 'Camacho Cueva Nixon', '06 45 32 85 56')">U10</div>
+    <div class="team" onclick="openPopup('U11', 'Bouhnaida Yacine', '06 49 57 54 49')">U11</div>
+  </div>
+
+  <!-- Préformation -->
+  <div class="team-container" id="prefo">
+    <div class="team" onclick="openPopup('U12', 'Salihi Faysal', '06 49 57 54 49')">U12</div>
+    <div class="team" onclick="openPopup('U13', 'Barmashi Franci', '06 55 08 89 39')">U13</div>
+    <div class="team" onclick="openPopup('U13 Féminines', 'Alem Mehdi', '06 82 64 42 21')">U13F</div>
+    <div class="team" onclick="openPopup('U14', 'Doebler Florian', '06 59 41 10 15')">U14</div>
+  </div>
+
+  <!-- Séniors -->
+  <div class="team-container" id="seniors">
+    <div class="team" onclick="openPopup('Senior A', 'Kaddar Touati', '07 83 33 15 86')">Senior A</div>
+    <div class="team" onclick="openPopup('Senior B', 'Barbacci Stephane', '06 82 32 00 77')">Senior B</div>
+    <div class="team" onclick="openPopup('Senior Féminines', 'Derouette Mickael', '06 19 74 27 27')">Senior F</div>
+  </div>
 
   <!-- Popup -->
   <div class="popup" id="popup">
@@ -161,6 +205,15 @@
   </footer>
 
   <script>
+    // Affiche la bonne catégorie
+    function showCategory(category) {
+      document.querySelectorAll('.team-container').forEach(c => c.style.display = 'none');
+      document.getElementById(category).style.display = 'flex';
+      document.querySelectorAll('.category-buttons button').forEach(b => b.classList.remove('active'));
+      event.target.classList.add('active');
+    }
+
+    // Ouvre le popup
     function openPopup(team, coach, phone) {
       document.getElementById('teamName').textContent = team;
       document.getElementById('coachName').textContent = coach;
@@ -171,6 +224,9 @@
     function closePopup() {
       document.getElementById('popup').style.display = 'none';
     }
+
+    // Par défaut afficher École de Foot
+    document.getElementById('ecole').style.display = 'flex';
   </script>
 
 </body>
