@@ -3,14 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Équipes - U.S. Florange-Ébange</title>
+  <title>Nos Équipes - U.S. Florange Ébange</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #f9f9f9;
+      background-color: #f4f4f4;
       margin: 0;
       padding: 0;
-      color: #333;
       text-align: center;
     }
 
@@ -18,160 +17,130 @@
       background-color: #ff6600;
       color: white;
       padding: 20px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
     }
 
     header img {
-      width: 100px;
-      border-radius: 50%;
-      margin-bottom: 10px;
+      height: 60px;
     }
 
     h1 {
       margin: 10px 0;
     }
 
-    .team-container {
+    .container {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 25px;
-      margin: 30px auto;
-      max-width: 1000px;
+      gap: 20px;
+      margin: 40px 20px;
     }
 
-    .team {
+    .bubble {
       background-color: white;
-      color: #ff6600;
+      border: 3px solid #ff6600;
+      border-radius: 50%;
       width: 120px;
       height: 120px;
-      border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       font-weight: bold;
-      border: 4px solid #ff6600;
+      color: #333;
       cursor: pointer;
-      transition: transform 0.2s, background-color 0.2s, color 0.2s;
+      transition: 0.3s;
     }
 
-    .team:hover {
+    .bubble:hover {
       background-color: #ff6600;
       color: white;
       transform: scale(1.1);
     }
 
-    /* Popup */
-    .popup {
+    /* Fenêtre pop-up */
+    .modal {
       display: none;
       position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.6);
-      justify-content: center;
-      align-items: center;
       z-index: 10;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.7);
     }
 
-    .popup-content {
-      background: white;
+    .modal-content {
+      background-color: white;
+      margin: 10% auto;
       padding: 20px;
-      border-radius: 15px;
-      width: 300px;
+      border-radius: 10px;
+      width: 80%;
+      max-width: 400px;
       text-align: center;
       position: relative;
-      animation: fadeIn 0.3s ease;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     }
 
-    .popup-content h2 {
-      color: #ff6600;
-      margin-bottom: 10px;
+    .modal-content img {
+      width: 100%;
+      border-radius: 10px;
     }
 
-    .close-btn {
+    .close {
+      color: #333;
+      font-size: 24px;
       position: absolute;
       top: 10px;
       right: 15px;
       cursor: pointer;
-      color: #ff6600;
-      font-weight: bold;
-      font-size: 20px;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.9); }
-      to { opacity: 1; transform: scale(1); }
-    }
-
-    footer {
-      background-color: #ff6600;
-      color: white;
-      padding: 15px;
-      margin-top: 40px;
-    }
-
-    footer a {
-      color: white;
-      text-decoration: none;
     }
 
   </style>
 </head>
 <body>
-
   <header>
-    <img src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/465817372_1057114252579709_1675475728144681515_n.jpg" alt="Logo U.S. Florange">
+    <img src="https://raw.githubusercontent.com/Mohamed57100/us-florange/main/465817372_1057114252579709_1675475728144681515_n.jpg" alt="Logo U.S. Florange Ébange">
     <h1>Nos Équipes</h1>
-    <p><a href="index.html" style="color:white;">← Retour à l'accueil</a></p>
+    <img src="https://raw.githubusercontent.com/Mohamed57100/us-florange/main/465817372_1057114252579709_1675475728144681515_n.jpg" alt="Logo U.S. Florange Ébange">
   </header>
 
-  <main>
-    <div class="team-container">
-      <div class="team" onclick="openPopup('U6', 'El Majdoub Youssef', '06 32 40 68 85')">U6</div>
-      <div class="team" onclick="openPopup('U7', 'Kaddar Touati', '07 83 33 15 86')">U7</div>
-      <div class="team" onclick="openPopup('U8', 'El Majdoub Youssef', '06 32 40 68 85')">U8</div>
-      <div class="team" onclick="openPopup('U9', 'El Majdoub Youssef', '06 32 40 68 85')">U9</div>
-      <div class="team" onclick="openPopup('U10', 'Camacho Cueva Nixon', '06 45 32 85 56')">U10</div>
-      <div class="team" onclick="openPopup('U11', 'Bouhnaida Yacine', '06 49 57 54 49')">U11</div>
-      <div class="team" onclick="openPopup('U12', 'Salihi Faysal', '06 49 57 54 49')">U12</div>
-      <div class="team" onclick="openPopup('U13', 'Barmashi Franci', '06 55 08 89 39')">U13</div>
-      <div class="team" onclick="openPopup('U13 Féminines', 'Alem Mehdi', '06 82 64 42 21')">U13F</div>
-      <div class="team" onclick="openPopup('U14', 'Doebler Florian', '06 59 41 10 15')">U14</div>
-      <div class="team" onclick="openPopup('Senior A', 'Kaddar Touati', '07 83 33 15 86')">Senior A</div>
-      <div class="team" onclick="openPopup('Senior B', 'Barbacci Stephane', '06 82 32 00 77')">Senior B</div>
-      <div class="team" onclick="openPopup('Senior Féminines', 'Derouette Mickael', '06 19 74 27 27')">Senior F</div>
-    </div>
-  </main>
+  <div class="container">
+    <div class="bubble" onclick="openModal('El Majdoub Youssef', 'https://...')">U6</div>
+    <div class="bubble" onclick="openModal('El Majdoub Youssef', 'https://...')">U7</div>
+    <div class="bubble" onclick="openModal('El Majdoub Youssef', 'https://...')">U8</div>
+    <div class="bubble" onclick="openModal('El Majdoub Youssef', 'https://...')">U9</div>
+    <div class="bubble" onclick="openModal('Nixon Camacho', 'https://...')">U10</div>
+    <div class="bubble" onclick="openModal('Bouhnaida Yacine', 'https://...')">U11</div>
+    <div class="bubble" onclick="openModal('Salihi Faysal', 'https://...')">U12</div>
+    <div class="bubble" onclick="openModal('Barmashi Franci', 'https://...')">U13</div>
+    <div class="bubble" onclick="openModal('Alem Mehdi', 'https://...')">U13F</div>
+    <div class="bubble" onclick="openModal('Doebler Florian', 'https://...')">U14</div>
+    <div class="bubble" onclick="openModal('Derouette Mickael', 'https://...')">Senior F</div>
+    <div class="bubble" onclick="openModal('Barbacci Stephane', 'https://...')">Senior B</div>
+    <div class="bubble" onclick="openModal('Kaddar Touati', 'https://...')">Senior A</div>
+  </div>
 
-  <!-- Popup -->
-  <div class="popup" id="popup">
-    <div class="popup-content">
-      <span class="close-btn" onclick="closePopup()">×</span>
-      <h2 id="teamName"></h2>
-      <p><strong>Coach :</strong> <span id="coachName"></span></p>
-      <p><strong>Téléphone :</strong> <span id="coachPhone"></span></p>
+  <!-- Fenêtre pop-up -->
+  <div id="coachModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2 id="coachName"></h2>
+      <img id="coachPhoto" src="" alt="Photo du coach">
     </div>
   </div>
 
-  <footer>
-    <p>© 2025 U.S. Florange-Ébange | 
-      <a href="https://www.instagram.com/us_florange_ebange/">Instagram</a> | 
-      <a href="https://www.facebook.com/UnionSportiveFlorangeEbange">Facebook</a>
-    </p>
-  </footer>
-
   <script>
-    function openPopup(team, coach, phone) {
-      document.getElementById('teamName').textContent = team;
-      document.getElementById('coachName').textContent = coach;
-      document.getElementById('coachPhone').textContent = phone;
-      document.getElementById('popup').style.display = 'flex';
+    function openModal(name, photoUrl) {
+      document.getElementById("coachName").innerText = name;
+      document.getElementById("coachPhoto").src = photoUrl;
+      document.getElementById("coachModal").style.display = "block";
     }
 
-    function closePopup() {
-      document.getElementById('popup').style.display = 'none';
+    function closeModal() {
+      document.getElementById("coachModal").style.display = "none";
     }
   </script>
-
 </body>
 </html>
