@@ -3,84 +3,138 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>US Florange-Ébange | Accueil</title>
+  <title>Accueil - U.S. Florange-Ébange</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(180deg, #ffffff, #ffe5cc);
       margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
       text-align: center;
-      color: #222;
     }
+
     header {
-      background-color: orange;
+      background-color: #ff6600;
       color: white;
-      padding: 25px 10px;
+      padding: 20px 0;
     }
+
     header img {
-      width: 130px;
-      height: auto;
+      width: 100px;
       border-radius: 50%;
-      display: block;
-      margin: 0 auto 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      margin-bottom: 10px;
     }
+
     nav {
-      background-color: #222;
-      padding: 12px 0;
+      margin-top: 10px;
     }
+
     nav a {
+      margin: 0 15px;
       color: white;
       text-decoration: none;
-      margin: 0 20px;
       font-weight: bold;
       transition: 0.3s;
     }
+
     nav a:hover {
-      color: orange;
+      text-decoration: underline;
     }
+
     main {
-      padding: 40px 15px;
+      padding: 40px 20px;
     }
-    main img {
-      width: 90%;
-      max-width: 700px;
-      border-radius: 12px;
-      margin-top: 20px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+
+    .intro {
+      max-width: 800px;
+      margin: 0 auto;
     }
+
+    .intro h1 {
+      color: #ff6600;
+      margin-bottom: 20px;
+    }
+
+    .intro p {
+      line-height: 1.6;
+      font-size: 18px;
+    }
+
+    .btn-container {
+      margin-top: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: #ff6600;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 10px;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #e65c00;
+      transform: scale(1.05);
+    }
+
     footer {
-      background-color: orange;
+      background-color: #ff6600;
       color: white;
       padding: 15px;
-      margin-top: 40px;
+      margin-top: 50px;
+    }
+
+    footer a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
+
   <header>
-    <img src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/465817372_1057114252579709_1675475728144681515_n.jpg" 
-         alt="Logo US Florange-Ébange" />
+    <img src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/465817372_1057114252579709_1675475728144681515_n.jpg" alt="Logo U.S. Florange">
     <h1>U.S. Florange-Ébange</h1>
-    <p>Club de football – Passion · Engagement · Fensch</p>
+
+    <nav>
+      <a href="index.html">Accueil</a>
+      <a href="equipes.html">Équipes</a>
+      <a href="organigramme.html">Organigramme</a>
+      <a href="contact.html">Contact</a>
+    </nav>
   </header>
 
-  <nav>
-    <a href="index.html">Accueil</a>
-    <a href="equipes.html">Équipes</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-
   <main>
-    <h2>Bienvenue sur le site officiel de l'U.S. Florange-Ébange</h2>
-    <p>Retrouvez nos équipes, les résultats, et toute la vie du club 🧡⚽</p>
+    <section class="intro">
+      <h1>Bienvenue sur le site officiel de l’U.S. Florange-Ébange</h1>
+      <p>
+        Le club de football de Florange-Ébange vous accueille dans une ambiance conviviale et passionnée.
+        Découvrez nos équipes, nos entraîneurs, et toute la vie du club à travers ce site !
+      </p>
 
-    <img src="https://www.europlan-online.de/files/fce4271b9cf25b25bcc773732a418fcb.jpg" 
-         alt="Stade Serge Zénier à Florange">
+      <div class="btn-container">
+        <a href="equipes.html" class="btn">Voir nos équipes</a>
+        <a href="organigramme.html" class="btn">Découvrir le staff</a>
+        <a href="contact.html" class="btn">Nous contacter</a>
+      </div>
+    </section>
   </main>
 
   <footer>
-    <p>© 2025 U.S. Florange-Ébange – Tous droits réservés</p>
+    <p>© 2025 U.S. Florange-Ébange |
+      <a href="https://www.instagram.com/us_florange_ebange/">Instagram</a> |
+      <a href="https://www.facebook.com/UnionSportiveFlorangeEbange">Facebook</a>
+    </p>
   </footer>
+
 </body>
 </html>
