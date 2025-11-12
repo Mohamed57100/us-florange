@@ -3,12 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Accueil - U.S. Florange-Ébange</title>
+  <title>U.S. Florange-Ébange</title>
   <style>
     body {
-      margin: 0;
       font-family: Arial, sans-serif;
       background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
       color: #333;
       text-align: center;
     }
@@ -20,9 +21,9 @@
     }
 
     header img {
-      width: 100px;
+      width: 90px;
       border-radius: 50%;
-      margin-bottom: 10px;
+      vertical-align: middle;
     }
 
     nav {
@@ -30,8 +31,8 @@
     }
 
     nav a {
-      margin: 0 15px;
       color: white;
+      margin: 0 15px;
       text-decoration: none;
       font-weight: bold;
       transition: 0.3s;
@@ -41,44 +42,25 @@
       text-decoration: underline;
     }
 
-    main {
-      padding: 40px 20px;
+    h1 {
+      margin-top: 20px;
+      color: #ff6600;
     }
 
     .intro {
+      margin: 30px auto;
       max-width: 800px;
-      margin: 0 auto;
+      background-color: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
 
-    .intro h1 {
-      color: #ff6600;
-      margin-bottom: 20px;
-    }
-
-    .intro p {
-      line-height: 1.6;
-      font-size: 18px;
-    }
-
-    .btn-container {
-      margin-top: 30px;
-    }
-
-    .btn {
-      display: inline-block;
-      background-color: #ff6600;
-      color: white;
-      padding: 12px 25px;
-      border-radius: 25px;
-      text-decoration: none;
-      font-weight: bold;
-      margin: 10px;
-      transition: background-color 0.3s, transform 0.3s;
-    }
-
-    .btn:hover {
-      background-color: #e65c00;
-      transform: scale(1.05);
+    .intro img {
+      width: 100%;
+      border-radius: 10px;
+      margin-top: 15px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
     }
 
     footer {
@@ -91,7 +73,6 @@
     footer a {
       color: white;
       text-decoration: none;
-      font-weight: bold;
     }
 
     footer a:hover {
@@ -104,7 +85,6 @@
   <header>
     <img src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/465817372_1057114252579709_1675475728144681515_n.jpg" alt="Logo U.S. Florange">
     <h1>U.S. Florange-Ébange</h1>
-
     <nav>
       <a href="index.html">Accueil</a>
       <a href="equipes.html">Équipes</a>
@@ -114,19 +94,14 @@
   </header>
 
   <main>
-    <section class="intro">
-      <h1>Bienvenue sur le site officiel de l’U.S. Florange-Ébange</h1>
-      <p>
-        Le club de football de Florange-Ébange vous accueille dans une ambiance conviviale et passionnée.
-        Découvrez nos équipes, nos entraîneurs, et toute la vie du club à travers ce site !
-      </p>
+    <div class="intro">
+      <h2>Bienvenue sur le site officiel de l’U.S. Florange-Ébange</h2>
+      <p>Le club de football de Florange-Ébange vous accueille dans une ambiance conviviale et passionnée. 
+      Découvrez nos équipes, nos entraîneurs, et toute la vie du club à travers ce site !</p>
 
-      <div class="btn-container">
-        <a href="equipes.html" class="btn">Voir nos équipes</a>
-        <a href="organigramme.html" class="btn">Découvrir le staff</a>
-        <a href="contact.html" class="btn">Nous contacter</a>
-      </div>
-    </section>
+      <!-- Image encadrée -->
+      <img src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/Capture%20d'%C3%A9cran%202025-11-12%20151009.png" alt="Stade de Florange">
+    </div>
   </main>
 
   <footer>
