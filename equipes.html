@@ -1,73 +1,89 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Équipes - U.S. Florange-Ébange</title>
   <style>
     body {
-      font-family: "Poppins", sans-serif;
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
       margin: 0;
-      background: #f5f5f5;
+      padding: 0;
+      color: #333;
       text-align: center;
     }
 
     header {
       background-color: #ff6600;
       color: white;
-      padding: 1rem;
+      padding: 20px 0;
+    }
+
+    header img {
+      width: 100px;
+      border-radius: 50%;
+      margin-bottom: 10px;
     }
 
     h1 {
-      margin: 0.5rem 0;
+      margin: 10px 0;
     }
 
-    .categories {
-      margin-top: 30px;
+    /* Boutons de catégorie */
+    .category-buttons {
+      margin: 25px 0;
     }
 
-    .category-btn {
-      background: #ff6600;
-      color: white;
-      padding: 10px 20px;
-      margin: 5px;
+    .category-buttons button {
+      background-color: #ff6600;
       border: none;
-      border-radius: 25px;
-      cursor: pointer;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-
-    .category-btn:hover {
-      background: #e55a00;
-    }
-
-    .teams {
-      display: none;
-      margin-top: 20px;
-    }
-
-    .team {
-      display: inline-block;
-      background: white;
-      border-radius: 50%;
-      width: 110px;
-      height: 110px;
-      line-height: 110px;
-      margin: 10px;
-      color: #333;
-      font-weight: 600;
-      border: 3px solid #ff6600;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    .team:hover {
-      background: #ff6600;
       color: white;
+      padding: 12px 20px;
+      margin: 0 10px;
+      border-radius: 25px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .category-buttons button:hover,
+    .category-buttons button.active {
+      background-color: #cc5200;
       transform: scale(1.05);
     }
 
+    .team-container {
+      display: none;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+      margin: 20px auto;
+      max-width: 1000px;
+    }
+
+    .team {
+      background-color: white;
+      color: #ff6600;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      border: 4px solid #ff6600;
+      cursor: pointer;
+      transition: transform 0.2s, background-color 0.2s, color 0.2s;
+    }
+
+    .team:hover {
+      background-color: #ff6600;
+      color: white;
+      transform: scale(1.1);
+    }
+
+    /* Popup */
     .popup {
       display: none;
       position: fixed;
@@ -76,100 +92,142 @@
       background: rgba(0, 0, 0, 0.6);
       justify-content: center;
       align-items: center;
-      z-index: 1000;
+      z-index: 10;
     }
 
     .popup-content {
       background: white;
-      padding: 25px;
-      border-radius: 20px;
-      text-align: center;
+      padding: 20px;
+      border-radius: 15px;
       width: 300px;
+      text-align: center;
       position: relative;
+      animation: fadeIn 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .popup-content h2 {
+      color: #ff6600;
+      margin-bottom: 10px;
+    }
+
+    .popup-content img {
+      width: 100%;
+      max-width: 250px;
+      border-radius: 10px;
+      margin-bottom: 10px;
     }
 
     .close-btn {
       position: absolute;
       top: 10px;
       right: 15px;
-      font-size: 20px;
       cursor: pointer;
       color: #ff6600;
+      font-weight: bold;
+      font-size: 20px;
     }
 
-    .popup img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      border: 3px solid #ff6600;
-      object-fit: cover;
-      margin-bottom: 10px;
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
     }
+
+    footer {
+      background-color: #ff6600;
+      color: white;
+      padding: 15px;
+      margin-top: 40px;
+    }
+
+    footer a {
+      color: white;
+      text-decoration: none;
+    }
+
   </style>
 </head>
 <body>
+
   <header>
+    <img src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/465817372_1057114252579709_1675475728144681515_n.jpg" alt="Logo U.S. Florange">
     <h1>Nos Équipes</h1>
+    <p><a href="index.html" style="color:white;">← Retour à l'accueil</a></p>
   </header>
 
-  <div class="categories">
-    <button class="category-btn" onclick="showCategory('preformation')">Préformation</button>
-    <button class="category-btn" onclick="showCategory('ecole')">École de Foot</button>
-    <button class="category-btn" onclick="showCategory('seniors')">Séniors</button>
+  <!-- Boutons -->
+  <div class="category-buttons">
+    <button onclick="showCategory('ecole')" class="active">École de Foot</button>
+    <button onclick="showCategory('prefo')">Préformation</button>
+    <button onclick="showCategory('seniors')">Séniors</button>
+  </div>
+
+  <!-- École de foot -->
+  <div class="team-container" id="ecole">
+    <div class="team" onclick="openPopup('U6', 'El Majdoub Youssef', '06 32 40 68 85')">U6</div>
+    <div class="team" onclick="openPopup('U7', 'Kaddar Touati', '07 83 33 15 86')">U7</div>
+    <div class="team" onclick="openPopup('U8', 'El Majdoub Youssef', '06 32 40 68 85')">U8</div>
+    <div class="team" onclick="openPopup('U9', 'El Majdoub Youssef', '06 32 40 68 85')">U9</div>
+    <div class="team" onclick="openPopup('U10', 'Camacho Cueva Nixon', '06 45 32 85 56')">U10</div>
+    <div class="team" onclick="openPopup('U11', 'Bouhnaida Yacine', '06 49 57 54 49')">U11</div>
   </div>
 
   <!-- Préformation -->
-  <div id="preformation" class="teams">
-    <div class="team" onclick="openPopup('U12', 'Salihi Faysal', '—', 'https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/Capture%20d%27%C3%A9cran%202025-11-11%20155753.png')">U12</div>
-    <div class="team" onclick="openPopup('U13', 'Barmashi Franci', '—', 'https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/Capture%20d%27%C3%A9cran%202025-11-11%20155801.png')">U13</div>
-    <div class="team" onclick="openPopup('U13F', 'Alem Mehdi', '—', 'https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/Capture%20d%27%C3%A9cran%202025-11-11%20155808.png')">U13F</div>
-    <div class="team" onclick="openPopup('U14', 'Doebler Florian', '—', 'https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/Capture%20d%27%C3%A9cran%202025-11-11%20155838.png')">U14</div>
-  </div>
-
-  <!-- École de Foot -->
-  <div id="ecole" class="teams">
-    <div class="team" onclick="openPopup('U6', 'El Majdoub Youssef', '—', 'https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/Capture%20d%27%C3%A9cran%202025-11-11%20155847.png')">U6</div>
-    <div class="team" onclick="openPopup('U7', 'Kaddar Touati', '—', 'https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/Capture%20d%27%C3%A9cran%202025-11-11%20155858.png')">U7</div>
-    <div class="team" onclick="openPopup('U8-U9', 'El Majdoub Youssef', '—', 'https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/Capture%20d%27%C3%A9cran%202025-11-11%20155925.png')">U8-U9</div>
-    <div class="team" onclick="openPopup('U10', 'Camacho Cueva Nixon', '—', 'https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/Capture%20d%27%C3%A9cran%202025-11-11%20155934.png')">U10</div>
-    <div class="team" onclick="openPopup('U11', 'Bouhnaida Yacine', '—', 'https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/Capture%20d%27%C3%A9cran%202025-11-11%20155941.png')">U11</div>
+  <div class="team-container" id="prefo">
+    <div class="team" onclick="openPopup('U12', 'Salihi Faysal', '06 49 57 54 49')">U12</div>
+    <div class="team" onclick="openPopup('U13', 'Barmashi Franci', '06 55 08 89 39')">U13</div>
+    <div class="team" onclick="openPopup('U13 Féminines', 'Alem Mehdi', '06 82 64 42 21')">U13F</div>
+    <div class="team" onclick="openPopup('U14', 'Doebler Florian', '06 59 41 10 15')">U14</div>
   </div>
 
   <!-- Séniors -->
-  <div id="seniors" class="teams">
-    <div class="team" onclick="openPopup('Senior A', 'Kaddar Touati', '—', 'https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/Capture%20d%27%C3%A9cran%202025-11-11%20155949.png')">Senior A</div>
-    <div class="team" onclick="openPopup('Senior B', 'Barbacci Stephane', '—', 'https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/Capture%20d%27%C3%A9cran%202025-11-11%20155949.png')">Senior B</div>
-    <div class="team" onclick="openPopup('Senior F', 'Derouette Mickael', '—', 'https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/Capture%20d%27%C3%A9cran%202025-11-11%20155949.png')">Senior F</div>
+  <div class="team-container" id="seniors">
+    <div class="team" onclick="openPopup('Senior A', 'Kaddar Touati', '07 83 33 15 86')">Senior A</div>
+    <div class="team" onclick="openPopup('Senior B', 'Barbacci Stephane', '06 82 32 00 77')">Senior B</div>
+    <div class="team" onclick="openPopup('Senior Féminines', 'Derouette Mickael', '06 19 74 27 27')">Senior F</div>
   </div>
 
   <!-- Popup -->
   <div class="popup" id="popup">
     <div class="popup-content">
       <span class="close-btn" onclick="closePopup()">×</span>
-      <img id="coachPhoto" src="" alt="Photo du coach">
       <h2 id="teamName"></h2>
       <p><strong>Coach :</strong> <span id="coachName"></span></p>
       <p><strong>Téléphone :</strong> <span id="coachPhone"></span></p>
     </div>
   </div>
 
+  <footer>
+    <p>© 2025 U.S. Florange-Ébange | 
+      <a href="https://www.instagram.com/us_florange_ebange/">Instagram</a> | 
+      <a href="https://www.facebook.com/UnionSportiveFlorangeEbange">Facebook</a>
+    </p>
+  </footer>
+
   <script>
-    function showCategory(id) {
-      document.querySelectorAll('.teams').forEach(el => el.style.display = 'none');
-      document.getElementById(id).style.display = 'block';
+    // Affiche la bonne catégorie
+    function showCategory(category) {
+      document.querySelectorAll('.team-container').forEach(c => c.style.display = 'none');
+      document.getElementById(category).style.display = 'flex';
+      document.querySelectorAll('.category-buttons button').forEach(b => b.classList.remove('active'));
+      event.target.classList.add('active');
     }
 
-    function openPopup(team, coach, phone, photo) {
+    // Ouvre le popup
+    function openPopup(team, coach, phone) {
       document.getElementById('teamName').textContent = team;
       document.getElementById('coachName').textContent = coach;
       document.getElementById('coachPhone').textContent = phone;
-      document.getElementById('coachPhoto').src = photo;
       document.getElementById('popup').style.display = 'flex';
     }
 
     function closePopup() {
       document.getElementById('popup').style.display = 'none';
     }
+
+    // Par défaut afficher École de Foot
+    document.getElementById('ecole').style.display = 'flex';
   </script>
+
 </body>
 </html>
