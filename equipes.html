@@ -1,233 +1,213 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Équipes - U.S. Florange-Ébange</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f9f9f9;
-      margin: 0;
-      padding: 0;
-      color: #333;
-      text-align: center;
-    }
+    <meta charset="UTF-8">
+    <title>Nos Équipes - U.S. Florange-Ébange</title>
+    <link rel="stylesheet" href="styles.css">
 
-    header {
-      background-color: #ff6600;
-      color: white;
-      padding: 20px 0;
-    }
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
 
-    header img {
-      width: 100px;
-      border-radius: 50%;
-      margin-bottom: 10px;
-    }
+        h1 {
+            text-align: center;
+            background: #ff6a00;
+            padding: 20px 0;
+            color: white;
+            margin-bottom: 30px;
+        }
 
-    h1 {
-      margin: 10px 0;
-    }
+        /* Boutons des catégories */
+        .category-buttons {
+            text-align: center;
+            margin-bottom: 30px;
+        }
 
-    /* Boutons de catégorie */
-    .category-buttons {
-      margin: 25px 0;
-    }
+        .category-buttons button {
+            background: #ff6a00;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            margin: 5px;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+        }
 
-    .category-buttons button {
-      background-color: #ff6600;
-      border: none;
-      color: white;
-      padding: 12px 20px;
-      margin: 0 10px;
-      border-radius: 25px;
-      font-size: 16px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
+        .category-buttons button:hover {
+            background: #e45f00;
+        }
 
-    .category-buttons button:hover,
-    .category-buttons button.active {
-      background-color: #cc5200;
-      transform: scale(1.05);
-    }
+        /* Sections */
+        .category-section {
+            display: none;
+            width: 90%;
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
 
-    .team-container {
-      display: none;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 25px;
-      margin: 20px auto;
-      max-width: 1000px;
-    }
+        h2 {
+            color: #ff6a00;
+            border-left: 6px solid #ff6a00;
+            padding-left: 10px;
+            margin-bottom: 20px;
+        }
 
-    .team {
-      background-color: white;
-      color: #ff6600;
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-      border: 4px solid #ff6600;
-      cursor: pointer;
-      transition: transform 0.2s, background-color 0.2s, color 0.2s;
-    }
+        /* Coach cards */
+        .coach-card {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
 
-    .team:hover {
-      background-color: #ff6600;
-      color: white;
-      transform: scale(1.1);
-    }
+        .coach-photo {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
 
-    /* Popup */
-    .popup {
-      display: none;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.6);
-      justify-content: center;
-      align-items: center;
-      z-index: 10;
-    }
+        .coach-info p {
+            margin: 5px 0;
+            font-size: 18px;
+        }
+    </style>
 
-    .popup-content {
-      background: white;
-      padding: 20px;
-      border-radius: 15px;
-      width: 300px;
-      text-align: center;
-      position: relative;
-      animation: fadeIn 0.3s ease;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    }
-
-    .popup-content h2 {
-      color: #ff6600;
-      margin-bottom: 10px;
-    }
-
-    .popup-content img {
-      width: 100%;
-      max-width: 250px;
-      border-radius: 10px;
-      margin-bottom: 10px;
-    }
-
-    .close-btn {
-      position: absolute;
-      top: 10px;
-      right: 15px;
-      cursor: pointer;
-      color: #ff6600;
-      font-weight: bold;
-      font-size: 20px;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.9); }
-      to { opacity: 1; transform: scale(1); }
-    }
-
-    footer {
-      background-color: #ff6600;
-      color: white;
-      padding: 15px;
-      margin-top: 40px;
-    }
-
-    footer a {
-      color: white;
-      text-decoration: none;
-    }
-
-  </style>
+    <script>
+        function showCategory(category) {
+            document.querySelectorAll(".category-section").forEach(sec => sec.style.display = "none");
+            document.getElementById(category).style.display = "block";
+        }
+    </script>
 </head>
+
 <body>
 
-  <header>
-    <img src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/465817372_1057114252579709_1675475728144681515_n.jpg" alt="Logo U.S. Florange">
-    <h1>Nos Équipes</h1>
-    <p><a href="index.html" style="color:white;">← Retour à l'accueil</a></p>
-  </header>
+<h1>Nos Équipes</h1>
 
-  <!-- Boutons -->
-  <div class="category-buttons">
-    <button onclick="showCategory('ecole')" class="active">École de Foot</button>
-    <button onclick="showCategory('prefo')">Préformation</button>
+<!-- Boutons -->
+<div class="category-buttons">
+    <button onclick="showCategory('preformation')">Préformation</button>
+    <button onclick="showCategory('ecole')">École de Foot</button>
     <button onclick="showCategory('seniors')">Séniors</button>
-  </div>
+</div>
 
-  <!-- École de foot -->
-  <div class="team-container" id="ecole">
-    <div class="team" onclick="openPopup('U6', 'El Majdoub Youssef', '06 32 40 68 85')">U6</div>
-    <div class="team" onclick="openPopup('U7', 'Kaddar Touati', '07 83 33 15 86')">U7</div>
-    <div class="team" onclick="openPopup('U8', 'El Majdoub Youssef', '06 32 40 68 85')">U8</div>
-    <div class="team" onclick="openPopup('U9', 'El Majdoub Youssef', '06 32 40 68 85')">U9</div>
-    <div class="team" onclick="openPopup('U10', 'Camacho Cueva Nixon', '06 45 32 85 56')">U10</div>
-    <div class="team" onclick="openPopup('U11', 'Bouhnaida Yacine', '06 47 01 83 76')">U11</div>
-  </div>
+<!-- ================================ -->
+<!--          PREFORMATION            -->
+<!-- ================================ -->
+<div class="category-section" id="preformation">
+    <h2>Préformation</h2>
 
-  <!-- Préformation -->
-  <div class="team-container" id="prefo">
-    <div class="team" onclick="openPopup('U12', 'Salihi Faysal', '06 49 57 54 49')">U12</div>
-    <div class="team" onclick="openPopup('U13', 'Barmashi Franci', '06 55 08 89 39')">U13</div>
-    <div class="team" onclick="openPopup('U13 Féminines', 'Alem Mehdi', '06 82 64 42 21')">U13F</div>
-    <div class="team" onclick="openPopup('U14', 'Doebler Florian', '06 59 41 10 15')">U14</div>
-  </div>
-
-  <!-- Séniors -->
-  <div class="team-container" id="seniors">
-    <div class="team" onclick="openPopup('Senior A', 'Kaddar Touati', '07 83 33 15 86')">Senior A</div>
-    <div class="team" onclick="openPopup('Senior B', 'Barbacci Stephane', '06 82 32 00 77')">Senior B</div>
-    <div class="team" onclick="openPopup('Senior Féminines', 'Derouette Mickael', '06 19 74 27 27')">Senior F</div>
-  </div>
-
-  <!-- Popup -->
-  <div class="popup" id="popup">
-    <div class="popup-content">
-      <span class="close-btn" onclick="closePopup()">×</span>
-      <h2 id="teamName"></h2>
-      <p><strong>Coach :</strong> <span id="coachName"></span></p>
-      <p><strong>Téléphone :</strong> <span id="coachPhone"></span></p>
+    <div class="coach-card">
+        <div class="coach-info">
+            <p><strong>U12 :</strong> Salihi Faysal — 06 49 67 51 49</p>
+        </div>
     </div>
-  </div>
 
-  <footer>
-    <p>© 2025 U.S. Florange-Ébange | 
-      <a href="https://www.instagram.com/us_florange_ebange/">Instagram</a> | 
-      <a href="https://www.facebook.com/UnionSportiveFlorangeEbange">Facebook</a>
-    </p>
-  </footer>
+    <div class="coach-card">
+        <div class="coach-info">
+            <p><strong>U13 :</strong> Barmashi Franci — 06 55 80 87 39</p>
+        </div>
+    </div>
 
-  <script>
-    // Affiche la bonne catégorie
-    function showCategory(category) {
-      document.querySelectorAll('.team-container').forEach(c => c.style.display = 'none');
-      document.getElementById(category).style.display = 'flex';
-      document.querySelectorAll('.category-buttons button').forEach(b => b.classList.remove('active'));
-      event.target.classList.add('active');
-    }
+    <div class="coach-card">
+        <div class="coach-info">
+            <p><strong>U13F :</strong> Alem Mehdi — 06 82 64 42 21</p>
+        </div>
+    </div>
 
-    // Ouvre le popup
-    function openPopup(team, coach, phone) {
-      document.getElementById('teamName').textContent = team;
-      document.getElementById('coachName').textContent = coach;
-      document.getElementById('coachPhone').textContent = phone;
-      document.getElementById('popup').style.display = 'flex';
-    }
+    <div class="coach-card">
+        <div class="coach-info">
+            <p><strong>U14 :</strong> Doebler Florian — 06 49 81 10 15</p>
+        </div>
+    </div>
+</div>
 
-    function closePopup() {
-      document.getElementById('popup').style.display = 'none';
-    }
+<!-- ================================ -->
+<!--         ECOLE DE FOOT            -->
+<!-- ================================ -->
+<div class="category-section" id="ecole">
+    <h2>École de Foot</h2>
 
-    // Par défaut afficher École de Foot
-    document.getElementById('ecole').style.display = 'flex';
-  </script>
+    <!-- U6 avec la photo -->
+    <div class="coach-card">
+        <img src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/Capture%20d'%C3%A9cran%202025-11-11%20155838.png"
+             alt="Coach U6" class="coach-photo">
+
+        <div class="coach-info">
+            <p><strong>U6 :</strong> El Majdoub Youssef — 07 82 40 86 85</p>
+        </div>
+    </div>
+
+    <div class="coach-card">
+        <div class="coach-info">
+            <p><strong>U7 :</strong> Kaddar Touati — 07 83 36 53 86</p>
+        </div>
+    </div>
+
+    <div class="coach-card">
+        <div class="coach-info">
+            <p><strong>U8 :</strong> El Majdoub Youssef — 07 82 40 86 85</p>
+        </div>
+    </div>
+
+    <div class="coach-card">
+        <div class="coach-info">
+            <p><strong>U9 :</strong> El Majdoub Youssef — 07 82 40 86 85</p>
+        </div>
+    </div>
+
+    <div class="coach-card">
+        <div class="coach-info">
+            <p><strong>U10 :</strong> Camacho Cueva Nixon — 06 15 34 25 86</p>
+        </div>
+    </div>
+
+    <div class="coach-card">
+        <div class="coach-info">
+            <p><strong>U11 :</strong> Bouhnaida Yacine — 06 49 04 63 76</p>
+        </div>
+    </div>
+</div>
+
+<!-- ================================ -->
+<!--            SENIORS               -->
+<!-- ================================ -->
+<div class="category-section" id="seniors">
+    <h2>Séniors</h2>
+
+    <div class="coach-card">
+        <div class="coach-info">
+            <p><strong>Senior A :</strong> Kaddar Touati — 07 83 36 53 86</p>
+        </div>
+    </div>
+
+    <div class="coach-card">
+        <div class="coach-info">
+            <p><strong>Senior B :</strong> Barbacci Stéphane — 06 82 32 00 77</p>
+        </div>
+    </div>
+
+    <div class="coach-card">
+        <div class="coach-info">
+            <p><strong>Senior F :</strong> Derouette Mickael — 06 19 34 27 22</p>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>
