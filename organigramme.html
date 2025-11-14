@@ -1,139 +1,111 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Organigramme - U.S. Florange-Ébange</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #fff8f0;
-      margin: 0;
-      padding: 0;
-      color: #333;
-    }
+    <meta charset="UTF-8">
+    <title>Organigramme - U.S. Florange-Ébange</title>
+    <link rel="stylesheet" href="styles.css">
 
-    header {
-      background-color: #ff6600;
-      color: white;
-      text-align: center;
-      padding: 20px;
-    }
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
 
-    h1 {
-      font-size: 2.2em;
-      margin-bottom: 10px;
-    }
+        h1 {
+            text-align: center;
+            background: #ff6a00;
+            padding: 20px 0;
+            color: white;
+            margin-bottom: 30px;
+        }
 
-    section {
-      max-width: 900px;
-      margin: 40px auto;
-      background-color: white;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      padding: 25px;
-    }
+        h2 {
+            color: #ff6a00;
+            border-left: 6px solid #ff6a00;
+            padding-left: 10px;
+            margin-top: 40px;
+        }
 
-    h2 {
-      color: #ff6600;
-      border-bottom: 2px solid #ff6600;
-      padding-bottom: 5px;
-      margin-bottom: 15px;
-    }
+        .section {
+            width: 90%;
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
 
-    .person {
-      margin: 10px 0;
-    }
+        .item {
+            padding: 8px 0;
+            font-size: 18px;
+        }
 
-    .person strong {
-      color: #000;
-    }
+        .item span {
+            color: #444;
+            font-weight: bold;
+        }
+    </style>
 
-    footer {
-      background-color: #ff6600;
-      color: white;
-      text-align: center;
-      padding: 15px;
-      margin-top: 40px;
-    }
-
-    footer a {
-      color: white;
-      text-decoration: none;
-    }
-  </style>
 </head>
 <body>
 
-  <header>
-    <h1>Organigramme U.S. Florange-Ébange</h1>
-  </header>
+<h1>Organigramme du Club</h1>
 
-  <main>
-    <!-- Comité Directeur -->
-    <section>
-      <h2>Comité Directeur</h2>
-      <p><strong>Président :</strong> Pretto Mathieu — 06 50 87 52 67</p>
-      <p><strong>Vice-Président :</strong> Tedesco Domenico</p>
-      <p><strong>Trésorier :</strong> Fellah Mohammed El Bachir — 06 07 66 75 34</p>
-      <p><strong>Trésorier Adjoint :</strong> Boukhelouf Mohamed Seghir</p>
-      <p><strong>Secrétaire Général :</strong> Hym Cyrielle</p>
-      <p><strong>Secrétaire Général Adjoint :</strong> El Majdoub Youssef</p>
-      <p><strong>Correspondant :</strong> Pretto Mathieu — 06 50 87 52 67</p>
-    </section>
+<div class="section">
+    <h2>Staff dirigeant</h2>
 
-    <!-- Membres du Comité Directeur -->
-    <section>
-      <h2>Membres du Comité Directeur</h2>
-      <p><strong>Alem Mehdi</strong></p>
-      <p><strong>Vigent Malvina</strong></p>
-      <p><strong>Perez Miranda José</strong></p>
-      <p><strong>Martin Sonia</strong></p>
-    </section>
+    <p class="item"><span>Président :</span> Pretto Mathieu — 06 50 87 52 67</p>
+    <p class="item"><span>Vice-Président :</span> Tedesco Domenico</p>
+    <p class="item"><span>Trésorier :</span> Fellah Mohammed El Bachir</p>
+    <p class="item"><span>Trésorier Adjoint :</span> Boukhelouf Mohamed Seghir</p>
+    <p class="item"><span>Secrétaire Général :</span> Hym Cyrielle</p>
+    <p class="item"><span>Secrétaire Général Adjoint :</span> El Majdoub Youssef</p>
+</div>
 
-    <!-- Responsables techniques -->
-    <section>
-      <h2>Responsables Techniques</h2>
-      <p><strong>Responsable Technique Jeunes :</strong> Kaddar Touati — 07 83 36 53 86</p>
-      <p><strong>Responsable Technique École de Foot :</strong> El Majdoub Youssef</p>
-      <p><strong>Responsable Technique Féminines :</strong> Alem Mehdi</p>
-      <p><strong>Responsable Technique Futsal :</strong> El Majdoub Youssef</p>
-    </section>
 
-    <!-- Référents -->
-    <section>
-      <h2>Référents</h2>
-      <p><strong>Référent Foot Loisir :</strong> Bouhnaida Yacine — 06 47 01 83 76</p>
-      <p><strong>Référent Projet Club / Labels :</strong> Bouhnaida Yacine — 06 47 01 83 76</p>
-      <p><strong>Référent Arbitre :</strong> Fellah Mohammed El Bachir — 06 07 66 75 34</p>
-      <p><strong>Référent Programme Éducatif Fédéral :</strong> Bouhnaida Yacine — 06 47 01 83 76</p>
-      <p><strong>Référent Sécurité :</strong> Pretto Mathieu — 06 50 87 52 67</p>
-      <p><strong>Référent Féminin :</strong> Alem Mehdi</p>
-      <p><strong>Référent COVID :</strong> Pretto Mathieu — 06 50 87 52 67</p>
-    </section>
+<div class="section">
+    <h2>Comité directeur</h2>
 
-    <!-- Éducateurs -->
-    <section>
-      <h2>Éducateurs</h2>
-      <p><strong>U6 :</strong> El Majdoub Youssef</p>
-      <p><strong>U7 :</strong> Kaddar Touati</p>
-      <p><strong>U8 :</strong> El Majdoub Youssef</p>
-      <p><strong>U9 :</strong> El Majdoub Youssef</p>
-      <p><strong>U10 :</strong> Camacho Cueva Nixon</p>
-      <p><strong>U11 :</strong> Bouhnaida Yacine</p>
-      <p><strong>U12 :</strong> Salihi Faysal</p>
-      <p><strong>U13 :</strong> Barmashi Franci</p>
-      <p><strong>U13F :</strong> Alem Mehdi</p>
-      <p><strong>U14 :</strong> Doebler Florian</p>
-      <p><strong>Senior A :</strong> Kaddar Touati</p>
-      <p><strong>Senior B :</strong> Barbacci Stephane</p>
-      <p><strong>Senior Féminines :</strong> Derouette Mickael</p>
-    </section>
-  </main>
+    <p class="item"><span>Membre Comité Directeur :</span> Alem Mehdi</p>
+    <p class="item"><span>Membre Comité Directeur :</span> Vigent Malvina</p>
+    <p class="item"><span>Membre Comité Directeur :</span> Perez Miranda José</p>
+    <p class="item"><span>Membre Comité Directeur :</span> Martin Sonia</p>
 
-  <footer>
-    <p>© 2025 U.S. Florange-Ébange | <a href="index.html">Accueil</a> | <a href="contact.html">Contact</a></p>
-  </footer>
+    <p class="item"><span>Correspondant :</span> Pretto Mathieu — 06 50 87 52 67</p>
+</div>
+
+
+<div class="section">
+    <h2>Responsables techniques</h2>
+
+    <p class="item"><span>Responsable Technique Féminines :</span> Alem Mehdi</p>
+    <p class="item"><span>Responsable Technique Jeunes :</span> Kaddar Touati</p>
+    <p class="item"><span>Responsable Technique École de Foot :</span> El Majdoub Youssef</p>
+    <p class="item"><span>Responsable Technique Futsal :</span> El Majdoub Youssef</p>
+</div>
+
+
+<div class="section">
+    <h2>Éducateurs – Par Catégorie</h2>
+
+    <p class="item"><span>U6 :</span> El Majdoub Youssef — 07 82 40 86 85</p>
+    <p class="item"><span>U7 :</span> Kaddar Touati — 07 83 36 53 86</p>
+    <p class="item"><span>U8 :</span> El Majdoub Youssef — 07 82 40 86 85</p>
+    <p class="item"><span>U9 :</span> El Majdoub Youssef — 07 82 40 86 85</p>
+    <p class="item"><span>U10 :</span> Camacho Cueva Nixon — 06 15 34 25 86</p>
+    <p class="item"><span>U11 :</span> Bouhnaida Yacine — 06 49 04 63 76</p>
+    <p class="item"><span>U12 :</span> Salihi Faysal — 06 49 67 51 49</p>
+    <p class="item"><span>U13 :</span> Barmashi Franci — 06 55 80 87 39</p>
+    <p class="item"><span>U13F :</span> Alem Mehdi — 06 82 64 42 21</p>
+    <p class="item"><span>U14 :</span> Doebler Florian — 06 49 81 10 15</p>
+    <p class="item"><span>Senior A :</span> Kaddar Touati — 07 83 36 53 86</p>
+    <p class="item"><span>Senior B :</span> Barbacci Stéphane — 06 82 32 00 77</p>
+    <p class="item"><span>Senior F :</span> Derouette Mickael — 06 19 34 27 22</p>
+</div>
 
 </body>
 </html>
