@@ -3,53 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <title>Nos Équipes - U.S. Florange-Ébange</title>
-    <link rel="stylesheet" href="styles.css">
 
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: #f5f5f5;
+            background: #ff6a00;
             margin: 0;
             padding: 0;
-        }
-
-        /* ENTÊTE ORANGE */
-        .header {
-            background: #ff6a00;
-            text-align: center;
-            padding: 30px 0;
             color: white;
         }
 
-        /* Logo rond */
-        .club-logo {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            border: 6px solid white;
-            object-fit: cover;
-            margin-bottom: 10px;
+        /* HEADER */
+        .header {
+            text-align: center;
+            padding: 40px 0 20px 0;
         }
 
-        /* Boutons catégories */
+        .header img {
+            width: 170px;
+            height: 170px;
+            border-radius: 50%;
+            border: 6px solid white;
+            background: white;
+            object-fit: cover;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 50px;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        /* Buttons */
         .category-buttons {
             text-align: center;
             margin-bottom: 30px;
         }
 
         .category-buttons button {
-            background: #ff6a00;
-            color: white;
+            background: white;
+            color: #ff6a00;
             border: none;
             padding: 12px 20px;
             margin: 5px;
             border-radius: 8px;
             font-size: 18px;
             cursor: pointer;
+            font-weight: bold;
         }
 
         .category-buttons button:hover {
-            background: #e45f00;
+            background: #f0f0f0;
         }
 
         /* Sections */
@@ -60,8 +65,8 @@
             margin: auto;
             background: white;
             padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 15px;
+            color: black;
             margin-bottom: 40px;
         }
 
@@ -72,23 +77,25 @@
             margin-bottom: 20px;
         }
 
-        /* Coach card */
+        /* Coach cards */
         .coach-card {
             display: flex;
             align-items: center;
             gap: 20px;
+            background: #fafafa;
             padding: 15px;
             border-radius: 10px;
-            background: #fff;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border: 2px solid #ececec;
             margin-bottom: 20px;
         }
 
         .coach-photo {
             width: 120px;
             height: 120px;
-            border-radius: 10px;
             object-fit: cover;
+            border-radius: 10px;
+            border: 2px solid #ddd;
+            background: white;
         }
 
         .coach-info p {
@@ -99,7 +106,9 @@
 
     <script>
         function showCategory(category) {
-            document.querySelectorAll(".category-section").forEach(sec => sec.style.display = "none");
+            document.querySelectorAll(".category-section")
+                    .forEach(sec => sec.style.display = "none");
+
             document.getElementById(category).style.display = "block";
         }
     </script>
@@ -107,14 +116,14 @@
 
 <body>
 
-<!-- ENTÊTE AVEC LOGO -->
+<!-- ============== HEADER ============== -->
 <div class="header">
-    <img src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/465817372_1057114252579709_1675475728144681515_n.jpg"
-         alt="Logo Club" class="club-logo">
-    <h1>Nos Équipes</h1>
+    <img src="img/logo.png" alt="Logo US Florange">
 </div>
 
-<!-- Boutons : ordre corrigé -->
+<h1>Nos Équipes</h1>
+
+<!-- Boutons -->
 <div class="category-buttons">
     <button onclick="showCategory('ecole')">École de Foot</button>
     <button onclick="showCategory('preformation')">Préformation</button>
@@ -122,56 +131,54 @@
 </div>
 
 <!-- ================================ -->
-<!--        ÉCOLE DE FOOT            -->
+<!--         ECOLE DE FOOT            -->
 <!-- ================================ -->
 <div class="category-section" id="ecole">
     <h2>École de Foot</h2>
 
-    <!-- U6 / U8 / U9 : même coach même photo -->
+    <!-- U6 -->
     <div class="coach-card">
-        <img src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/El%20Majdoub%20Youssef.png"
-             class="coach-photo">
+        <img src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/El%20Majdoub%20Youssef.png" class="coach-photo">
         <div class="coach-info">
             <p><strong>U6 :</strong> El Majdoub Youssef — 07 82 40 86 85</p>
         </div>
     </div>
 
+    <!-- U7 -->
     <div class="coach-card">
-        <img src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/Kaddar%20Touati.png"
-             class="coach-photo">
+        <img src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/Kaddar%20Touati.png" class="coach-photo">
         <div class="coach-info">
             <p><strong>U7 :</strong> Kaddar Touati — 07 83 36 53 86</p>
         </div>
     </div>
 
+    <!-- U8 -->
     <div class="coach-card">
-        <img src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/El%20Majdoub%20Youssef.png"
-             class="coach-photo">
+        <img src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/El%20Majdoub%20Youssef.png" class="coach-photo">
         <div class="coach-info">
             <p><strong>U8 :</strong> El Majdoub Youssef — 07 82 40 86 85</p>
         </div>
     </div>
 
+    <!-- U9 -->
     <div class="coach-card">
-        <img src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/El%20Majdoub%20Youssef.png"
-             class="coach-photo">
+        <img src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/El%20Majdoub%20Youssef.png" class="coach-photo">
         <div class="coach-info">
             <p><strong>U9 :</strong> El Majdoub Youssef — 07 82 40 86 85</p>
         </div>
     </div>
 
+    <!-- U10 -->
     <div class="coach-card">
-        <img src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/Nixon%20Camacho.png"
-             class="coach-photo">
+        <img src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/Nixon%20Camacho.png" class="coach-photo">
         <div class="coach-info">
             <p><strong>U10 :</strong> Camacho Cueva Nixon — 06 15 34 25 86</p>
         </div>
     </div>
 
-    <!-- U11 photo avatar -->
+    <!-- U11 (sans photo → avatar) -->
     <div class="coach-card">
-        <img src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/avatar.png"
-             class="coach-photo">
+        <img src="img/avatar.png" class="coach-photo">
         <div class="coach-info">
             <p><strong>U11 :</strong> Bouhnaida Yacine — 06 49 04 63 76</p>
         </div>
@@ -179,74 +186,74 @@
 </div>
 
 <!-- ================================ -->
-<!--        PRÉFORMATION             -->
+<!--          PREFORMATION            -->
 <!-- ================================ -->
 <div class="category-section" id="preformation">
     <h2>Préformation</h2>
 
+    <!-- U12 -->
     <div class="coach-card">
-        <img src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/Salihi%20Faysal.png"
-             class="coach-photo">
+        <img src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/Salihi%20Faysal.png" class="coach-photo">
         <div class="coach-info">
             <p><strong>U12 :</strong> Salihi Faysal — 06 49 67 51 49</p>
         </div>
     </div>
 
+    <!-- U13 -->
     <div class="coach-card">
-        <img src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/Barmashi%20Franci.png"
-             class="coach-photo">
+        <img src="img/avatar.png" class="coach-photo">
         <div class="coach-info">
-            <p><strong>U13 :</strong> Barmashi Franci — 06 55 80 87 39</p>
+            <p><strong>U13 :</strong> (photo manquante) – Contact non fourni</p>
         </div>
     </div>
 
+    <!-- U13F -->
     <div class="coach-card">
-        <img src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/Alem%20Mehdi.png"
-             class="coach-photo">
+        <img src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/Alem%20Mehdi.png" class="coach-photo">
         <div class="coach-info">
             <p><strong>U13F :</strong> Alem Mehdi — 06 82 64 42 21</p>
         </div>
     </div>
 
+    <!-- U14 -->
     <div class="coach-card">
-        <img src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/Doebler%20Florian.png"
-             class="coach-photo">
+        <img src="img/avatar.png" class="coach-photo">
         <div class="coach-info">
-            <p><strong>U14 :</strong> Doebler Florian — 06 49 81 10 15</p>
+            <p><strong>U14 :</strong> (photo manquante) – Doebler Florian — 06 49 81 10 15</p>
         </div>
     </div>
 </div>
 
 <!-- ================================ -->
-<!--             SENIORS             -->
+<!--              SENIORS             -->
 <!-- ================================ -->
 <div class="category-section" id="seniors">
     <h2>Séniors</h2>
 
     <div class="coach-card">
-        <img src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/Kaddar%20Touati.png"
-             class="coach-photo">
+        <img src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/Kaddar%20Touati.png" class="coach-photo">
         <div class="coach-info">
             <p><strong>Senior A :</strong> Kaddar Touati — 07 83 36 53 86</p>
         </div>
     </div>
 
     <div class="coach-card">
-        <img src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/avatar.png"
-             class="coach-photo">
+        <img src="img/avatar.png" class="coach-photo">
         <div class="coach-info">
             <p><strong>Senior B :</strong> Barbacci Stéphane — 06 82 32 00 77</p>
         </div>
     </div>
 
     <div class="coach-card">
-        <img src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/Derouette%20Mickael.png"
-             class="coach-photo">
+        <img src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/Derouette%20Mickael.png" class="coach-photo">
         <div class="coach-info">
             <p><strong>Senior F :</strong> Derouette Mickael — 06 19 34 27 22</p>
         </div>
     </div>
 </div>
+
+</body>
+</html>
 
 </body>
 </html>
