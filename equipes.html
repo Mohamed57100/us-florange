@@ -13,32 +13,7 @@
             color: white;
         }
 
-        /* HEADER central */
-        .header {
-            text-align: center;
-            padding: 40px 0 10px 0;
-            color: white;
-        }
-
-        /* Logo club rond + contour blanc */
-        .club-logo {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            border: 8px solid white;
-            object-fit: cover;
-            display: inline-block;
-            background: #222;
-        }
-
-        h1 {
-            text-align: center;
-            font-size: 44px;
-            margin: 12px 0 20px;
-            font-weight: 700;
-        }
-
-        /* Boutons catégorie */
+        /* Boutons catégories */
         .category-buttons {
             text-align: center;
             margin-bottom: 30px;
@@ -48,73 +23,106 @@
             background: white;
             color: #ff6a00;
             border: none;
-            padding: 12px 20px;
+            padding: 12px 22px;
             margin: 6px;
-            border-radius: 8px;
+            border-radius: 10px;
             font-size: 18px;
             cursor: pointer;
             font-weight: 700;
+            transition: 0.2s;
         }
 
+        .category-buttons button.active {
+            background: #222;
+            color: white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+        }
+
+        .category-buttons button:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Conteneur catégorie */
         .category-section {
             display: none;
             width: 90%;
             max-width: 980px;
-            margin: 26px auto 40px;
+            margin: 25px auto 40px;
             background: white;
-            padding: 22px;
-            border-radius: 14px;
+            padding: 25px;
+            border-radius: 16px;
             color: #111;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
         }
 
         h2 {
             color: #ff6a00;
-            margin: 0 0 16px;
-            font-size: 22px;
+            margin: 0 0 18px;
+            font-size: 26px;
             border-left: 6px solid #ff6a00;
             padding-left: 12px;
         }
 
+        /* Carte coach */
         .coach-card {
             display: flex;
             align-items: center;
             gap: 18px;
-            padding: 14px;
-            border-radius: 10px;
+            padding: 16px;
+            border-radius: 14px;
             background: #fafafa;
             border: 1px solid #eee;
-            margin-bottom: 14px;
-            transition: transform .14s ease, box-shadow .14s ease;
+            margin-bottom: 16px;
+            transition: transform .15s ease, box-shadow .15s ease;
+        }
+
+        .coach-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
         }
 
         .coach-photo {
             width: 128px;
             height: 128px;
             object-fit: cover;
-            border-radius: 10px;
+            border-radius: 50%;
             background: #f3f3f3;
-            border: 2px solid #e8e8e8;
+            border: 4px solid #fff;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.10);
         }
 
-        /* Placeholder fourni par toi */
-        .placeholder {
-            background-image: url('https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/photo%20de%20profil.png');
-            background-size: cover;
-            background-position: center;
+        .coach-info p {
+            margin: 4px 0;
+            font-size: 17px;
+            color: #222;
         }
 
+        .coach-info p.small {
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* Responsive */
         @media (max-width: 620px) {
-            .coach-card { flex-direction: column; text-align: center; }
-            .coach-photo { width: 140px; height: 140px; }
+            .coach-card {
+                flex-direction: column;
+                text-align: center;
+            }
+            .coach-photo {
+                width: 150px;
+                height: 150px;
+            }
         }
     </style>
 
     <script>
         function showCategory(categoryId) {
-            document.querySelectorAll('.category-section').forEach(s => s.style.display = 'none');
-            const el = document.getElementById(categoryId);
-            if (el) el.style.display = 'block';
+            document.querySelectorAll('.category-section').forEach(sec => sec.style.display = 'none');
+            document.querySelectorAll('.category-buttons button').forEach(btn => btn.classList.remove('active'));
+
+            document.getElementById(categoryId).style.display = 'block';
+            document.querySelector(`[onclick="showCategory('${categoryId}')"]`).classList.add('active');
+
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
@@ -125,13 +133,40 @@
 </head>
 <body>
 
-<!-- HEADER -->
-<div class="header">
-    <img class="club-logo" src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/465817372_1057114252579709_1675475728144681515_n.jpg" alt="Logo U.S. Florange">
+<!-- HEADER ÉQUIPES -->
+<div style="text-align:center; padding:40px 0 10px 0; color:white;">
+    <img src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/logo_lion.png"
+         alt="Logo du Club"
+         style="
+            width:170px;
+            height:170px;
+            border-radius:50%;
+            border:6px solid white;
+            object-fit:cover;
+         ">
 </div>
 
-<h1>Nos Équipes</h1>
+<h1 style="
+    text-align:center;
+    font-size:44px;
+    margin:12px 0 20px;
+    font-weight:700;
+    color:white;">
+    Équipes
+</h1>
 
+<div style="text-align:center; margin-bottom:25px;">
+    <a href="index.html"
+       style="
+            color:white;
+            font-size:22px;
+            text-decoration:none;
+            font-weight:500;">
+        ← Retour à l'accueil
+    </a>
+</div>
+
+<!-- BOUTONS CATÉGORIES -->
 <div class="category-buttons">
     <button onclick="showCategory('ecole')">École de Foot</button>
     <button onclick="showCategory('preformation')">Préformation</button>
@@ -143,33 +178,52 @@
     <h2>École de Foot</h2>
 
     <div class="coach-card">
-        <img class="coach-photo" src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/El%20Majdoub%20Youssef.png">
-        <div class="coach-info"><p><strong>U6</strong> — El Majdoub Youssef</p><p class="small">07 82 40 86 85</p></div>
+        <img class="coach-photo" src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/El%20Majdoub%20Youssef.png" alt="El Majdoub Youssef">
+        <div class="coach-info">
+            <p><strong>U6</strong> — El Majdoub Youssef</p>
+            <p class="small">07 82 40 86 85</p>
+        </div>
     </div>
 
     <div class="coach-card">
-        <img class="coach-photo" src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/Kaddar%20Touati.png">
-        <div class="coach-info"><p><strong>U7</strong> — Kaddar Touati</p><p class="small">07 83 36 53 86</p></div>
+        <img class="coach-photo" src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/Kaddar%20Touati.png" alt="Kaddar Touati">
+        <div class="coach-info">
+            <p><strong>U7</strong> — Kaddar Touati</p>
+            <p class="small">07 83 36 53 86</p>
+        </div>
     </div>
 
     <div class="coach-card">
-        <img class="coach-photo" src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/El%20Majdoub%20Youssef.png">
-        <div class="coach-info"><p><strong>U8</strong> — El Majdoub Youssef</p><p class="small">07 82 40 86 85</p></div>
+        <img class="coach-photo" src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/El%20Majdoub%20Youssef.png" alt="El Majdoub Youssef">
+        <div class="coach-info">
+            <p><strong>U8</strong> — El Majdoub Youssef</p>
+            <p class="small">07 82 40 86 85</p>
+        </div>
     </div>
 
     <div class="coach-card">
-        <img class="coach-photo" src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/El%20Majdoub%20Youssef.png">
-        <div class="coach-info"><p><strong>U9</strong> — El Majdoub Youssef</p><p class="small">07 82 40 86 85</p></div>
+        <img class="coach-photo" src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/El%20Majdoub%20Youssef.png" alt="El Majdoub Youssef">
+        <div class="coach-info">
+            <p><strong>U9</strong> — El Majdoub Youssef</p>
+            <p class="small">07 82 40 86 85</p>
+        </div>
     </div>
 
     <div class="coach-card">
-        <img class="coach-photo" src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/Nixon%20Camacho.png">
-        <div class="coach-info"><p><strong>U10</strong> — Camacho Nixon</p><p class="small">06 15 34 25 86</p></div>
+        <img class="coach-photo" src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/Nixon%20Camacho.png" alt="Camacho Nixon">
+        <div class="coach-info">
+            <p><strong>U10</strong> — Camacho Nixon</p>
+            <p class="small">06 15 34 25 86</p>
+        </div>
     </div>
 
     <div class="coach-card">
-        <div class="coach-photo placeholder"></div>
-        <div class="coach-info"><p><strong>U11</strong> — Bouhnaida Yacine</p><p class="small">06 49 04 63 76</p></div>
+        <img class="coach-photo" src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/photo%20de%20profil.png" alt="Bouhnaida Yacine">
+        <div class="coach-info">
+            <p><strong>U11</strong> — Bouhnaida Yacine</p>
+            <p class="small">06 49 04 63 76</p>
+            <p class="small">(photo non fournie)</p>
+        </div>
     </div>
 </div>
 
@@ -178,23 +232,37 @@
     <h2>Préformation</h2>
 
     <div class="coach-card">
-        <img class="coach-photo" src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/Salihi%20Faysal.png">
-        <div class="coach-info"><p><strong>U12</strong> — Salihi Faysal</p><p class="small">06 49 67 51 49</p></div>
+        <img class="coach-photo" src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/Salihi%20Faysal.png" alt="Salihi Faysal">
+        <div class="coach-info">
+            <p><strong>U12</strong> — Salihi Faysal</p>
+            <p class="small">06 49 67 51 49</p>
+        </div>
     </div>
 
     <div class="coach-card">
-        <div class="coach-photo placeholder"></div>
-        <div class="coach-info"><p><strong>U13</strong> — Barmashi Franci</p><p class="small">06 55 80 87 39</p></div>
+        <img class="coach-photo" src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/photo%20de%20profil.png" alt="Barmashi Franci">
+        <div class="coach-info">
+            <p><strong>U13</strong> — Barmashi Franci</p>
+            <p class="small">06 55 80 87 39</p>
+            <p class="small">(photo non fournie)</p>
+        </div>
     </div>
 
     <div class="coach-card">
-        <img class="coach-photo" src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/Alem%20Mehdi.png">
-        <div class="coach-info"><p><strong>U13F</strong> — Alem Mehdi</p><p class="small">06 82 64 42 21</p></div>
+        <img class="coach-photo" src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/Alem%20Mehdi.png" alt="Alem Mehdi">
+        <div class="coach-info">
+            <p><strong>U13F</strong> — Alem Mehdi</p>
+            <p class="small">06 82 64 42 21</p>
+        </div>
     </div>
 
     <div class="coach-card">
-        <img class="coach-photo" src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/Doebler%20Florian.png">
-        <div class="coach-info"><p><strong>U14</strong> — Doebler Florian</p><p class="small">06 49 81 10 15</p></div>
+        <img class="coach-photo" src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/photo%20de%20profil.png" alt="Doebler Florian">
+        <div class="coach-info">
+            <p><strong>U14</strong> — Doebler Florian</p>
+            <p class="small">06 49 81 10 15</p>
+            <p class="small">(photo non fournie)</p>
+        </div>
     </div>
 </div>
 
@@ -203,18 +271,28 @@
     <h2>Seniors</h2>
 
     <div class="coach-card">
-        <img class="coach-photo" src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/Kaddar%20Touati.png">
-        <div class="coach-info"><p><strong>Senior A</strong> — Kaddar Touati</p><p class="small">07 83 36 53 86</p></div>
+        <img class="coach-photo" src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/Kaddar%20Touati.png" alt="Kaddar Touati">
+        <div class="coach-info">
+            <p><strong>Senior A</strong> — Kaddar Touati</p>
+            <p class="small">07 83 36 53 86</p>
+        </div>
     </div>
 
     <div class="coach-card">
-        <div class="coach-photo placeholder"></div>
-        <div class="coach-info"><p><strong>Senior B</strong> — Barbacci Stéphane</p><p class="small">06 82 32 00 77</p></div>
+        <img class="coach-photo" src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/photo%20de%20profil.png" alt="Barbacci Stéphane">
+        <div class="coach-info">
+            <p><strong>Senior B</strong> — Barbacci Stéphane</p>
+            <p class="small">06 82 32 00 77</p>
+            <p class="small">(photo non fournie)</p>
+        </div>
     </div>
 
     <div class="coach-card">
-        <img class="coach-photo" src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/Derouette%20Mickael.png">
-        <div class="coach-info"><p><strong>Senior F</strong> — Derouette Mickael</p><p class="small">06 19 34 27 22</p></div>
+        <img class="coach-photo" src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/Derouette%20Mickael.png" alt="Derouette Mickael">
+        <div class="coach-info">
+            <p><strong>Senior F</strong> — Derouette Mickael</p>
+            <p class="small">06 19 34 27 22</p>
+        </div>
     </div>
 </div>
 
