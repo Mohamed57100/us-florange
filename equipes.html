@@ -13,29 +13,32 @@
             color: white;
         }
 
-        /* HEADER */
+        /* HEADER central */
         .header {
             text-align: center;
-            padding: 40px 0 20px 0;
+            padding: 40px 0 10px 0;
+            color: white;
         }
 
-        .header img {
-            width: 170px;
-            height: 170px;
+        /* Logo club rond + contour blanc */
+        .club-logo {
+            width: 200px;
+            height: 200px;
             border-radius: 50%;
-            border: 6px solid white;
-            background: white;
+            border: 8px solid white;
             object-fit: cover;
+            display: inline-block;
+            background: #222;
         }
 
         h1 {
             text-align: center;
-            font-size: 50px;
-            margin-top: 15px;
-            font-weight: bold;
+            font-size: 44px;
+            margin: 12px 0 20px;
+            font-weight: 700;
         }
 
-        /* Buttons */
+        /* Boutons catégorie */
         .category-buttons {
             text-align: center;
             margin-bottom: 30px;
@@ -46,214 +49,174 @@
             color: #ff6a00;
             border: none;
             padding: 12px 20px;
-            margin: 5px;
+            margin: 6px;
             border-radius: 8px;
             font-size: 18px;
             cursor: pointer;
-            font-weight: bold;
+            font-weight: 700;
         }
 
-        .category-buttons button:hover {
-            background: #f0f0f0;
-        }
-
-        /* Sections */
         .category-section {
             display: none;
             width: 90%;
-            max-width: 900px;
-            margin: auto;
+            max-width: 980px;
+            margin: 26px auto 40px;
             background: white;
-            padding: 20px;
-            border-radius: 15px;
-            color: black;
-            margin-bottom: 40px;
+            padding: 22px;
+            border-radius: 14px;
+            color: #111;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
         }
 
         h2 {
             color: #ff6a00;
+            margin: 0 0 16px;
+            font-size: 22px;
             border-left: 6px solid #ff6a00;
-            padding-left: 10px;
-            margin-bottom: 20px;
+            padding-left: 12px;
         }
 
-        /* Coach cards */
         .coach-card {
             display: flex;
             align-items: center;
-            gap: 20px;
-            background: #fafafa;
-            padding: 15px;
+            gap: 18px;
+            padding: 14px;
             border-radius: 10px;
-            border: 2px solid #ececec;
-            margin-bottom: 20px;
+            background: #fafafa;
+            border: 1px solid #eee;
+            margin-bottom: 14px;
+            transition: transform .14s ease, box-shadow .14s ease;
         }
 
         .coach-photo {
-            width: 120px;
-            height: 120px;
+            width: 128px;
+            height: 128px;
             object-fit: cover;
             border-radius: 10px;
-            border: 2px solid #ddd;
-            background: white;
+            background: #f3f3f3;
+            border: 2px solid #e8e8e8;
         }
 
-        .coach-info p {
-            margin: 5px 0;
-            font-size: 18px;
+        /* Placeholder fourni par toi */
+        .placeholder {
+            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMcAAADCCAYAAAD9yNZ1AAAAAX');
+            background-size: cover;
+            background-position: center;
+        }
+
+        @media (max-width: 620px) {
+            .coach-card { flex-direction: column; text-align: center; }
+            .coach-photo { width: 140px; height: 140px; }
         }
     </style>
 
     <script>
-        function showCategory(category) {
-            document.querySelectorAll(".category-section")
-                    .forEach(sec => sec.style.display = "none");
-
-            document.getElementById(category).style.display = "block";
+        function showCategory(categoryId) {
+            document.querySelectorAll('.category-section').forEach(s => s.style.display = 'none');
+            const el = document.getElementById(categoryId);
+            if (el) el.style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            showCategory('ecole');
+        });
     </script>
 </head>
-
 <body>
 
-<!-- ============== HEADER ============== -->
+<!-- HEADER -->
 <div class="header">
-    <img src="img/logo.png" alt="Logo US Florange">
+    <img class="club-logo" src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/465817372_1057114252579709_1675475728144681515_n.jpg" alt="Logo U.S. Florange">
 </div>
 
 <h1>Nos Équipes</h1>
 
-<!-- Boutons -->
 <div class="category-buttons">
     <button onclick="showCategory('ecole')">École de Foot</button>
     <button onclick="showCategory('preformation')">Préformation</button>
-    <button onclick="showCategory('seniors')">Séniors</button>
+    <button onclick="showCategory('seniors')">Seniors</button>
 </div>
 
-<!-- ================================ -->
-<!--         ECOLE DE FOOT            -->
-<!-- ================================ -->
-<div class="category-section" id="ecole">
+<!-- ===== ÉCOLE ===== -->
+<div id="ecole" class="category-section">
     <h2>École de Foot</h2>
 
-    <!-- U6 -->
     <div class="coach-card">
-        <img src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/El%20Majdoub%20Youssef.png" class="coach-photo">
-        <div class="coach-info">
-            <p><strong>U6 :</strong> El Majdoub Youssef — 07 82 40 86 85</p>
-        </div>
+        <img class="coach-photo" src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/El%20Majdoub%20Youssef.png">
+        <div class="coach-info"><p><strong>U6</strong> — El Majdoub Youssef</p><p class="small">07 82 40 86 85</p></div>
     </div>
 
-    <!-- U7 -->
     <div class="coach-card">
-        <img src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/Kaddar%20Touati.png" class="coach-photo">
-        <div class="coach-info">
-            <p><strong>U7 :</strong> Kaddar Touati — 07 83 36 53 86</p>
-        </div>
+        <img class="coach-photo" src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/Kaddar%20Touati.png">
+        <div class="coach-info"><p><strong>U7</strong> — Kaddar Touati</p><p class="small">07 83 36 53 86</p></div>
     </div>
 
-    <!-- U8 -->
     <div class="coach-card">
-        <img src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/El%20Majdoub%20Youssef.png" class="coach-photo">
-        <div class="coach-info">
-            <p><strong>U8 :</strong> El Majdoub Youssef — 07 82 40 86 85</p>
-        </div>
+        <img class="coach-photo" src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/El%20Majdoub%20Youssef.png">
+        <div class="coach-info"><p><strong>U8</strong> — El Majdoub Youssef</p><p class="small">07 82 40 86 85</p></div>
     </div>
 
-    <!-- U9 -->
     <div class="coach-card">
-        <img src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/El%20Majdoub%20Youssef.png" class="coach-photo">
-        <div class="coach-info">
-            <p><strong>U9 :</strong> El Majdoub Youssef — 07 82 40 86 85</p>
-        </div>
+        <img class="coach-photo" src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/El%20Majdoub%20Youssef.png">
+        <div class="coach-info"><p><strong>U9</strong> — El Majdoub Youssef</p><p class="small">07 82 40 86 85</p></div>
     </div>
 
-    <!-- U10 -->
     <div class="coach-card">
-        <img src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/Nixon%20Camacho.png" class="coach-photo">
-        <div class="coach-info">
-            <p><strong>U10 :</strong> Camacho Cueva Nixon — 06 15 34 25 86</p>
-        </div>
+        <img class="coach-photo" src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/Nixon%20Camacho.png">
+        <div class="coach-info"><p><strong>U10</strong> — Camacho Nixon</p><p class="small">06 15 34 25 86</p></div>
     </div>
 
-    <!-- U11 (sans photo → avatar) -->
     <div class="coach-card">
-        <img src="img/avatar.png" class="coach-photo">
-        <div class="coach-info">
-            <p><strong>U11 :</strong> Bouhnaida Yacine — 06 49 04 63 76</p>
-        </div>
+        <div class="coach-photo placeholder"></div>
+        <div class="coach-info"><p><strong>U11</strong> — Bouhnaida Yacine</p><p class="small">06 49 04 63 76</p></div>
     </div>
 </div>
 
-<!-- ================================ -->
-<!--          PREFORMATION            -->
-<!-- ================================ -->
-<div class="category-section" id="preformation">
+<!-- ===== PREFORMATION ===== -->
+<div id="preformation" class="category-section">
     <h2>Préformation</h2>
 
-    <!-- U12 -->
     <div class="coach-card">
-        <img src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/Salihi%20Faysal.png" class="coach-photo">
-        <div class="coach-info">
-            <p><strong>U12 :</strong> Salihi Faysal — 06 49 67 51 49</p>
-        </div>
+        <img class="coach-photo" src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/Salihi%20Faysal.png">
+        <div class="coach-info"><p><strong>U12</strong> — Salihi Faysal</p><p class="small">06 49 67 51 49</p></div>
     </div>
 
-    <!-- U13 -->
     <div class="coach-card">
-        <img src="img/avatar.png" class="coach-photo">
-        <div class="coach-info">
-            <p><strong>U13 :</strong> (photo manquante) – Contact non fourni</p>
-        </div>
+        <div class="coach-photo placeholder"></div>
+        <div class="coach-info"><p><strong>U13</strong> — Barmashi Franci</p><p class="small">06 55 80 87 39</p></div>
     </div>
 
-    <!-- U13F -->
     <div class="coach-card">
-        <img src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/Alem%20Mehdi.png" class="coach-photo">
-        <div class="coach-info">
-            <p><strong>U13F :</strong> Alem Mehdi — 06 82 64 42 21</p>
-        </div>
+        <img class="coach-photo" src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/Alem%20Mehdi.png">
+        <div class="coach-info"><p><strong>U13F</strong> — Alem Mehdi</p><p class="small">06 82 64 42 21</p></div>
     </div>
 
-    <!-- U14 -->
     <div class="coach-card">
-        <img src="img/avatar.png" class="coach-photo">
-        <div class="coach-info">
-            <p><strong>U14 :</strong> (photo manquante) – Doebler Florian — 06 49 81 10 15</p>
-        </div>
+        <img class="coach-photo" src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/Doebler%20Florian.png">
+        <div class="coach-info"><p><strong>U14</strong> — Doebler Florian</p><p class="small">06 49 81 10 15</p></div>
     </div>
 </div>
 
-<!-- ================================ -->
-<!--              SENIORS             -->
-<!-- ================================ -->
-<div class="category-section" id="seniors">
-    <h2>Séniors</h2>
+<!-- ===== SENIORS ===== -->
+<div id="seniors" class="category-section">
+    <h2>Seniors</h2>
 
     <div class="coach-card">
-        <img src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/Kaddar%20Touati.png" class="coach-photo">
-        <div class="coach-info">
-            <p><strong>Senior A :</strong> Kaddar Touati — 07 83 36 53 86</p>
-        </div>
+        <img class="coach-photo" src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/Kaddar%20Touati.png">
+        <div class="coach-info"><p><strong>Senior A</strong> — Kaddar Touati</p><p class="small">07 83 36 53 86</p></div>
     </div>
 
     <div class="coach-card">
-        <img src="img/avatar.png" class="coach-photo">
-        <div class="coach-info">
-            <p><strong>Senior B :</strong> Barbacci Stéphane — 06 82 32 00 77</p>
-        </div>
+        <div class="coach-photo placeholder"></div>
+        <div class="coach-info"><p><strong>Senior B</strong> — Barbacci Stéphane</p><p class="small">06 82 32 00 77</p></div>
     </div>
 
     <div class="coach-card">
-        <img src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/Derouette%20Mickael.png" class="coach-photo">
-        <div class="coach-info">
-            <p><strong>Senior F :</strong> Derouette Mickael — 06 19 34 27 22</p>
-        </div>
+        <img class="coach-photo" src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/Derouette%20Mickael.png">
+        <div class="coach-info"><p><strong>Senior F</strong> — Derouette Mickael</p><p class="small">06 19 34 27 22</p></div>
     </div>
 </div>
-
-</body>
-</html>
 
 </body>
 </html>
