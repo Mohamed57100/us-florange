@@ -15,9 +15,10 @@
         }
 
         header {
-            padding: 20px 0;
+            padding: 30px 0 10px 0;
         }
 
+        /* LOGO EN HAUT */
         .logo {
             width: 150px;
             height: 150px;
@@ -27,25 +28,46 @@
             margin-bottom: 10px;
         }
 
+        .retour {
+            margin-top: 10px;
+            font-size: 22px;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            display: block;
+        }
+
         h1 {
             font-size: 60px;
             margin-top: 10px;
+            margin-bottom: 5px;
             font-weight: bold;
         }
 
-        .container {
+        .content-box {
             width: 90%;
-            margin: 40px auto;
+            margin: 20px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+            color: black;
+        }
+
+        .container {
+            width: 100%;
+            margin-top: 20px;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
         }
 
+        /* RECTANGLES ORANGE */
         .card {
-            background: #f37021; /* ORANGE */
+            background: #f37021;
             padding: 20px;
             border-radius: 20px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.25);
             cursor: pointer;
             color: white;
         }
@@ -63,43 +85,52 @@
     </style>
 </head>
 <body>
+
     <header>
-        <!-- Logo déplacé TOUT EN HAUT -->
+
+        <!-- LOGO EN PREMIER -->
         <img class="logo" src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/465817372_1057114252579709_1675475728144681515_n.jpg" alt="Logo" />
 
         <h1>Boutique</h1>
+
+        <a href="index.html" class="retour">← Retour à l'accueil</a>
+
     </header>
 
-    <div class="container">
+    <div class="content-box">
 
-        <div class="card" onclick="openArticle('mo')">
-            <h2>Maillot Orange</h2>
-            <div class="price">15 €</div>
-        </div>
+        <div class="container">
 
-        <div class="card" onclick="openArticle('mn')">
-            <h2>Maillot Noir</h2>
-            <div class="price">15 €</div>
-        </div>
+            <div class="card" onclick="openArticle('mo')">
+                <h2>Maillot Orange</h2>
+                <div class="price">15 €</div>
+            </div>
 
-        <div class="card" onclick="openArticle('v')">
-            <h2>Veste</h2>
-            <div class="price">20 €</div>
-        </div>
+            <div class="card" onclick="openArticle('mn')">
+                <h2>Maillot Noir</h2>
+                <div class="price">15 €</div>
+            </div>
 
-        <div class="card" onclick="openArticle('p')">
-            <h2>Pantalon</h2>
-            <div class="price">20 €</div>
-        </div>
+            <div class="card" onclick="openArticle('v')">
+                <h2>Veste</h2>
+                <div class="price">20 €</div>
+            </div>
 
-        <div class="card" onclick="openArticle('d')">
-            <h2>Doudoune</h2>
-            <div class="price">66,50 €</div>
-        </div>
+            <div class="card" onclick="openArticle('p')">
+                <h2>Pantalon</h2>
+                <div class="price">20 €</div>
+            </div>
 
-        <div class="card" onclick="openArticle('k')">
-            <h2>K-Way</h2>
-            <div class="price">45,50 €</div>
+            <div class="card" onclick="openArticle('d')">
+                <h2>Doudoune</h2>
+                <div class="price">66,50 €</div>
+            </div>
+
+            <div class="card" onclick="openArticle('k')">
+                <h2>K-Way</h2>
+                <div class="price">45,50 €</div>
+            </div>
+
         </div>
 
     </div>
@@ -109,5 +140,6 @@
             window.location.href = "article.html?id=" + id;
         }
     </script>
+
 </body>
 </html>
