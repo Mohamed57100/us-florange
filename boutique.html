@@ -1,59 +1,125 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Boutique</title>
     <style>
         body {
             margin: 0;
             padding: 0;
-            background-color: #f37021; /* orange */
+            background-color: #f37021;
             font-family: Arial, sans-serif;
+            color: #fff;
             text-align: center;
-            color: white;
         }
 
-        .logo-container {
-            margin-top: 40px;
+        header {
+            padding: 30px 0;
         }
 
         .logo {
-            width: 220px;
-            height: 220px;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
-            border: 10px solid white;
+            border: 6px solid white;
             object-fit: cover;
         }
 
         h1 {
-            font-size: 70px;
+            font-size: 60px;
+            margin-top: 20px;
             font-weight: bold;
-            margin-top: 30px;
+        }
+
+        .container {
+            width: 90%;
+            margin: 40px auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: #ffffff22;
+            padding: 20px;
+            border-radius: 20px;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+        }
+
+        .card h2 {
+            margin: 0 0 10px;
+            font-size: 30px;
+        }
+
+        .price {
+            font-size: 26px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .sizes {
+            font-size: 18px;
+            line-height: 28px;
         }
 
         a {
-            text-decoration: none;
             color: white;
-            font-size: 35px;
+            text-decoration: none;
+            font-size: 28px;
+            display: inline-block;
+            margin-top: 40px;
         }
-
-        a:hover {
-            text-decoration: underline;
-        }
+        a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
+    <header>
+        <img class="logo" src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/465817372_1057114252579709_1675475728144681515_n.jpg" alt="Logo" />
+        <h1>Boutique</h1>
+    </header>
 
-    <div class="logo-container">
-        <img class="logo" 
-             src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/465817372_1057114252579709_1675475728144681515_n.jpg" 
-             alt="Logo Boutique">
+    <div class="container">
+
+        <div class="card">
+            <h2>Maillot Orange</h2>
+            <div class="price">15 €</div>
+            <div class="sizes"><strong>Tailles :</strong><br>S, XS, M, L, 13-14 ans, XL, 2XL, 5-6 ans</div>
+        </div>
+
+        <div class="card">
+            <h2>Maillot Noir</h2>
+            <div class="price">15 €</div>
+            <div class="sizes"><strong>Tailles :</strong><br>S, XS, M, L, 13-14 ans, XL, 2XL, 5-6 ans</div>
+        </div>
+
+        <div class="card">
+            <h2>Veste</h2>
+            <div class="price">20 €</div>
+            <div class="sizes"><strong>Tailles :</strong><br>M, 13-14 ans, XS, S, XL, L, 5-6 ans</div>
+        </div>
+
+        <div class="card">
+            <h2>Pantalon</h2>
+            <div class="price">20 €</div>
+            <div class="sizes"><strong>Tailles :</strong><br>13-14 ans, XS, XL, 2XL, S</div>
+        </div>
+
+        <div class="card">
+            <h2>Doudoune</h2>
+            <div class="price">66,50 €</div>
+            <div class="sizes"><strong>Tailles :</strong><br>L</div>
+        </div>
+
+        <div class="card">
+            <h2>K-Way</h2>
+            <div class="price">45,50 €</div>
+            <div class="sizes"><strong>Tailles :</strong><br>XL, M, L</div>
+        </div>
+
     </div>
 
-    <h1>Boutique</h1>
-
     <a href="index.html">← Retour à l'accueil</a>
-
 </body>
 </html>
