@@ -15,7 +15,7 @@
         }
 
         header {
-            padding: 30px 0;
+            padding: 30px 0 10px 0;
         }
 
         .logo {
@@ -26,9 +26,8 @@
             object-fit: cover;
         }
 
-        /* Style pour le retour */
         .retour {
-            margin-top: 15px;
+            margin-top: 10px;
             font-size: 22px;
             font-weight: bold;
             color: white;
@@ -39,23 +38,34 @@
         h1 {
             font-size: 60px;
             margin-top: 20px;
+            margin-bottom: 5px;
             font-weight: bold;
         }
 
-        .container {
+        /* Grand rectangle blanc */
+        .content-box {
             width: 90%;
-            margin: 40px auto;
+            margin: 20px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+            color: black;
+        }
+
+        .container {
+            width: 100%;
+            margin-top: 20px;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
         }
 
         .card {
-            background: #ffffff22;
+            background: #ffffffdd;
             padding: 20px;
             border-radius: 20px;
-            backdrop-filter: blur(5px);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.25);
             cursor: pointer;
         }
 
@@ -72,45 +82,50 @@
     </style>
 </head>
 <body>
-    <header>
-        <img class="logo" src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/465817372_1057114252579709_1675475728144681515_n.jpg" alt="Logo" />
 
-        <!-- Ajout demandé -->
+    <header>
+        <h1>Boutique</h1>
+
         <a href="index.html" class="retour">← Retour à l'accueil</a>
 
-        <h1>Boutique</h1>
+        <img class="logo" src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/465817372_1057114252579709_1675475728144681515_n.jpg" alt="Logo" />
     </header>
 
-    <div class="container">
+    <!-- Grand rectangle avec fond blanc -->
+    <div class="content-box">
 
-        <div class="card" onclick="openArticle('mo')">
-            <h2>Maillot Orange</h2>
-            <div class="price">15 €</div>
-        </div>
+        <div class="container">
 
-        <div class="card" onclick="openArticle('mn')">
-            <h2>Maillot Noir</h2>
-            <div class="price">15 €</div>
-        </div>
+            <div class="card" onclick="openArticle('mo')">
+                <h2>Maillot Orange</h2>
+                <div class="price">15 €</div>
+            </div>
 
-        <div class="card" onclick="openArticle('v')">
-            <h2>Veste</h2>
-            <div class="price">20 €</div>
-        </div>
+            <div class="card" onclick="openArticle('mn')">
+                <h2>Maillot Noir</h2>
+                <div class="price">15 €</div>
+            </div>
 
-        <div class="card" onclick="openArticle('p')">
-            <h2>Pantalon</h2>
-            <div class="price">20 €</div>
-        </div>
+            <div class="card" onclick="openArticle('v')">
+                <h2>Veste</h2>
+                <div class="price">20 €</div>
+            </div>
 
-        <div class="card" onclick="openArticle('d')">
-            <h2>Doudoune</h2>
-            <div class="price">66,50 €</div>
-        </div>
+            <div class="card" onclick="openArticle('p')">
+                <h2>Pantalon</h2>
+                <div class="price">20 €</div>
+            </div>
 
-        <div class="card" onclick="openArticle('k')">
-            <h2>K-Way</h2>
-            <div class="price">45,50 €</div>
+            <div class="card" onclick="openArticle('d')">
+                <h2>Doudoune</h2>
+                <div class="price">66,50 €</div>
+            </div>
+
+            <div class="card" onclick="openArticle('k')">
+                <h2>K-Way</h2>
+                <div class="price">45,50 €</div>
+            </div>
+
         </div>
 
     </div>
@@ -120,5 +135,6 @@
             window.location.href = "article.html?id=" + id;
         }
     </script>
+
 </body>
 </html>
