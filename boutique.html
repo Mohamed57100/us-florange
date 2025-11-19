@@ -83,42 +83,55 @@
     <div class="container">
 
         <div class="card">
-            <h2>Maillot Orange</h2>
+            <div class="img-box" style="width:100%;height:200px;background:#000;border-radius:15px;margin-bottom:15px;"></div>
             <div class="price">15 €</div>
-            <div class="sizes"><strong>Tailles :</strong><br>S, XS, M, L, 13-14 ans, XL, 2XL, 5-6 ans</div>
+            <button class="sizes-btn" onclick="toggleSizes('mo')">Tailles</button>
+            <div id="mo" class="sizes" style="display:none;">S, XS, M, L, 13-14 ans, XL, 2XL, 5-6 ans</div>
         </div>
 
         <div class="card">
-            <h2>Maillot Noir</h2>
+            <div class="img-box" style="width:100%;height:200px;background:#111;border-radius:15px;margin-bottom:15px;"></div>
             <div class="price">15 €</div>
-            <div class="sizes"><strong>Tailles :</strong><br>S, XS, M, L, 13-14 ans, XL, 2XL, 5-6 ans</div>
+            <button class="sizes-btn" onclick="toggleSizes('mn')">Tailles</button>
+            <div id="mn" class="sizes" style="display:none;">S, XS, M, L, 13-14 ans, XL, 2XL, 5-6 ans</div>
         </div>
 
         <div class="card">
-            <h2>Veste</h2>
+            <div class="img-box" style="width:100%;height:200px;background:#333;border-radius:15px;margin-bottom:15px;"></div>
             <div class="price">20 €</div>
-            <div class="sizes"><strong>Tailles :</strong><br>M, 13-14 ans, XS, S, XL, L, 5-6 ans</div>
+            <button class="sizes-btn" onclick="toggleSizes('v')">Tailles</button>
+            <div id="v" class="sizes" style="display:none;">M, 13-14 ans, XS, S, XL, L, 5-6 ans</div>
         </div>
 
         <div class="card">
-            <h2>Pantalon</h2>
+            <div class="img-box" style="width:100%;height:200px;background:#555;border-radius:15px;margin-bottom:15px;"></div>
             <div class="price">20 €</div>
-            <div class="sizes"><strong>Tailles :</strong><br>13-14 ans, XS, XL, 2XL, S</div>
+            <button class="sizes-btn" onclick="toggleSizes('p')">Tailles</button>
+            <div id="p" class="sizes" style="display:none;">13-14 ans, XS, XL, 2XL, S</div>
         </div>
 
         <div class="card">
-            <h2>Doudoune</h2>
+            <div class="img-box" style="width:100%;height:200px;background:#777;border-radius:15px;margin-bottom:15px;"></div>
             <div class="price">66,50 €</div>
-            <div class="sizes"><strong>Tailles :</strong><br>L</div>
+            <button class="sizes-btn" onclick="toggleSizes('d')">Tailles</button>
+            <div id="d" class="sizes" style="display:none;">L</div>
         </div>
 
         <div class="card">
-            <h2>K-Way</h2>
+            <div class="img-box" style="width:100%;height:200px;background:#999;border-radius:15px;margin-bottom:15px;"></div>
             <div class="price">45,50 €</div>
-            <div class="sizes"><strong>Tailles :</strong><br>XL, M, L</div>
+            <button class="sizes-btn" onclick="toggleSizes('k')">Tailles</button>
+            <div id="k" class="sizes" style="display:none;">XL, M, L</div>
         </div>
 
     </div>
+
+    <script>
+    function toggleSizes(id){
+        const box = document.getElementById(id);
+        box.style.display = box.style.display === "none" ? "block" : "none";
+    }
+    </script>
 
     <a href="index.html">← Retour à l'accueil</a>
 </body>
