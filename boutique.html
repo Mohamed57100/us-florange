@@ -59,23 +59,6 @@
             margin-bottom: 10px;
             font-weight: bold;
         }
-
-        a {
-            color: white;
-            text-decoration: none;
-            font-size: 28px;
-            display: inline-block;
-            margin-top: 40px;
-        }
-        a:hover { text-decoration: underline; }
-
-        .img-box {
-            width:100%;
-            height:200px;
-            background:white;
-            border-radius:15px;
-            margin-bottom:15px;
-        }
     </style>
 </head>
 <body>
@@ -86,44 +69,42 @@
 
     <div class="container">
 
-        <div class="card" onclick="location.href='article.html?id=mo'">
-            <div class="img-box"></div>
+        <div class="card" onclick="openArticle('mo')">
             <h2>Maillot Orange</h2>
             <div class="price">15 €</div>
         </div>
 
-        <div class="card" onclick="location.href='article.html?id=mn'">
-            <div class="img-box"></div>
+        <div class="card" onclick="openArticle('mn')">
             <h2>Maillot Noir</h2>
             <div class="price">15 €</div>
         </div>
 
-        <div class="card" onclick="location.href='article.html?id=v'">
-            <div class="img-box"></div>
+        <div class="card" onclick="openArticle('v')">
             <h2>Veste</h2>
             <div class="price">20 €</div>
         </div>
 
-        <div class="card" onclick="location.href='article.html?id=p'">
-            <div class="img-box"></div>
+        <div class="card" onclick="openArticle('p')">
             <h2>Pantalon</h2>
             <div class="price">20 €</div>
         </div>
 
-        <div class="card" onclick="location.href='article.html?id=d'">
-            <div class="img-box"></div>
+        <div class="card" onclick="openArticle('d')">
             <h2>Doudoune</h2>
             <div class="price">66,50 €</div>
         </div>
 
-        <div class="card" onclick="location.href='article.html?id=k'">
-            <div class="img-box"></div>
+        <div class="card" onclick="openArticle('k')">
             <h2>K-Way</h2>
             <div class="price">45,50 €</div>
         </div>
 
     </div>
 
-    <a href="index.html">← Retour à l'accueil</a>
+    <script>
+        function openArticle(id) {
+            window.location.href = "article.html?id=" + id;
+        }
+    </script>
 </body>
 </html>
