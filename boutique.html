@@ -46,6 +46,7 @@
             border-radius: 20px;
             backdrop-filter: blur(5px);
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+            cursor: pointer;
         }
 
         .card h2 {
@@ -59,11 +60,6 @@
             font-weight: bold;
         }
 
-        .sizes {
-            font-size: 18px;
-            line-height: 28px;
-        }
-
         a {
             color: white;
             text-decoration: none;
@@ -72,6 +68,14 @@
             margin-top: 40px;
         }
         a:hover { text-decoration: underline; }
+
+        .img-box {
+            width:100%;
+            height:200px;
+            background:white;
+            border-radius:15px;
+            margin-bottom:15px;
+        }
     </style>
 </head>
 <body>
@@ -82,62 +86,43 @@
 
     <div class="container">
 
-        <div class="card">
-            <div class="img-box" onclick="toggleSizes('mo')" style="width:100%;height:200px;background:white;border-radius:15px;margin-bottom:15px;cursor:pointer;"></div>
-            <h2 style="margin:0 0 10px;">Maillot Orange</h2>
+        <div class="card" onclick="location.href='article.html?id=mo'">
+            <div class="img-box"></div>
+            <h2>Maillot Orange</h2>
             <div class="price">15 €</div>
-            <button class="sizes-btn" id="btn-mo" onclick="toggleSizes('mo')">Tailles</button>
-            <div id="mo" class="sizes" style="display:none;">S, XS, M, L, 13-14 ans, XL, 2XL, 5-6 ans</div>
         </div>
 
-        <div class="card">
-            <div class="img-box" onclick="toggleSizes('mn')" style="width:100%;height:200px;background:white;border-radius:15px;margin-bottom:15px;cursor:pointer;"></div>
-            <h2 style="margin:0 0 10px;">Maillot Noir</h2>
+        <div class="card" onclick="location.href='article.html?id=mn'">
+            <div class="img-box"></div>
+            <h2>Maillot Noir</h2>
             <div class="price">15 €</div>
-            <button class="sizes-btn" id="btn-mn" onclick="toggleSizes('mn')">Tailles</button>
-            <div id="mn" class="sizes" style="display:none;">S, XS, M, L, 13-14 ans, XL, 2XL, 5-6 ans</div>
         </div>
 
-        <div class="card">
-            <div class="img-box" onclick="toggleSizes('v')" style="width:100%;height:200px;background:white;border-radius:15px;margin-bottom:15px;cursor:pointer;"></div>
-            <h2 style="margin:0 0 10px;">Veste</h2>
+        <div class="card" onclick="location.href='article.html?id=v'">
+            <div class="img-box"></div>
+            <h2>Veste</h2>
             <div class="price">20 €</div>
-            <button class="sizes-btn" id="btn-v" onclick="toggleSizes('v')">Tailles</button>
-            <div id="v" class="sizes" style="display:none;">M, 13-14 ans, XS, S, XL, L, 5-6 ans</div>
         </div>
 
-        <div class="card">
-            <div class="img-box" onclick="toggleSizes('p')" style="width:100%;height:200px;background:white;border-radius:15px;margin-bottom:15px;cursor:pointer;"></div>
-            <h2 style="margin:0 0 10px;">Pantalon</h2>
+        <div class="card" onclick="location.href='article.html?id=p'">
+            <div class="img-box"></div>
+            <h2>Pantalon</h2>
             <div class="price">20 €</div>
-            <button class="sizes-btn" id="btn-p" onclick="toggleSizes('p')">Tailles</button>
-            <div id="p" class="sizes" style="display:none;">13-14 ans, XS, XL, 2XL, S</div>
         </div>
 
-        <div class="card">
-            <div class="img-box" onclick="toggleSizes('d')" style="width:100%;height:200px;background:white;border-radius:15px;margin-bottom:15px;cursor:pointer;"></div>
-            <h2 style="margin:0 0 10px;">Doudoune</h2>
+        <div class="card" onclick="location.href='article.html?id=d'">
+            <div class="img-box"></div>
+            <h2>Doudoune</h2>
             <div class="price">66,50 €</div>
-            <button class="sizes-btn" id="btn-d" onclick="toggleSizes('d')">Tailles</button>
-            <div id="d" class="sizes" style="display:none;">L</div>
         </div>
 
-        <div class="card">
-            <div class="img-box" onclick="toggleSizes('k')" style="width:100%;height:200px;background:white;border-radius:15px;margin-bottom:15px;cursor:pointer;"></div>
-            <h2 style="margin:0 0 10px;">K-Way</h2>
+        <div class="card" onclick="location.href='article.html?id=k'">
+            <div class="img-box"></div>
+            <h2>K-Way</h2>
             <div class="price">45,50 €</div>
-            <button class="sizes-btn" id="btn-k" onclick="toggleSizes('k')">Tailles</button>
-            <div id="k" class="sizes" style="display:none;">XL, M, L</div>
         </div>
 
     </div>
-
-    <script>>
-    function toggleSizes(id){
-        const box = document.getElementById(id);
-        box.style.display = box.style.display === "none" ? "block" : "none";
-    }
-    </script>
 
     <a href="index.html">← Retour à l'accueil</a>
 </body>
