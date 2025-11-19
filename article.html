@@ -1,123 +1,90 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Article</title>
-
     <style>
         body {
-            background: #f37021;
-            color: white;
+            margin: 0;
+            padding: 0;
+            background-color: #f37021;
+            font-family: Arial, sans-serif;
+            color: #fff;
             text-align: center;
-            font-family: Arial;
-            padding: 20px;
         }
 
-        .box {
+        .card {
             background: #ffffff22;
             padding: 20px;
             border-radius: 20px;
-            width: 80%;
-            margin: auto;
+            width: 90%;
+            max-width: 400px;
+            margin: 40px auto;
             backdrop-filter: blur(5px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.25);
         }
 
-        select, button {
-            padding: 12px 20px;
-            font-size: 18px;
+        h2 { font-size: 40px; margin-bottom: 20px; }
+        .price { font-size: 30px; margin-bottom: 20px; }
+
+        select {
+            padding: 10px;
             border-radius: 10px;
-            border: none;
-            margin-top: 20px;
-        }
-
-        button {
-            cursor: pointer;
-            background: white;
-            font-weight: bold;
+            font-size: 18px;
         }
 
         a {
-            color: white;
             display: block;
-            margin-top: 30px;
-            font-size: 22px;
+            margin-top: 40px;
+            color: white;
+            font-size: 28px;
             text-decoration: none;
         }
     </style>
 </head>
-
 <body>
 
-<h1 id="title"></h1>
+<div class="card">
+    <h2 id="articleName"></h2>
+    <div class="price" id="articlePrice"></div>
 
-<div class="box">
-    <div style="width:250px;height:250px;background:white;border-radius:15px;margin:auto;"></div>
-
-    <p id="price" style="font-size:28px;font-weight:bold;"></p>
-
-    <label for="size">Choisir une taille :</label><br>
-    <select id="size"></select>
-
-    <button>Valider</button>
+    <label for="sizes">Choisir une taille :</label>
+    <br><br>
+    <select id="sizes"></select>
 </div>
 
 <a href="boutique.html">← Retour</a>
 
 <script>
-    // Base de données
-    const items = {
-        mo: {
-            name: "Maillot Orange",
-            price: "15 €",
-            sizes: ["S", "XS", "M", "L", "13-14 ans", "XL", "2XL", "5-6 ans"]
-        },
-        mn: {
-            name: "Maillot Noir",
-            price: "15 €",
-            sizes: ["S", "XS", "M", "L", "13-14 ans", "XL", "2XL", "5-6 ans"]
-        },
-        v: {
-            name: "Veste",
-            price: "20 €",
-            sizes: ["M", "13-14 ans", "XS", "S", "XL", "L", "5-6 ans"]
-        },
-        p: {
-            name: "Pantalon",
-            price: "20 €",
-            sizes: ["13-14 ans", "XS", "XL", "2XL", "S"]
-        },
-        d: {
-            name: "Doudoune",
-            price: "66,50 €",
-            sizes: ["L"]
-        },
-        k: {
-            name: "K-Way",
-            price: "45,50 €",
-            sizes: ["XL", "M", "L"]
-        }
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id");
+
+    const articles = {
+        mo: { name: "Maillot Orange", price: "15 €", sizes: ["S", "XS", "M", "L", "13-14 ans", "XL", "2XL", "5-6 ans"] },
+        mn: { name: "Maillot Noir", price: "15 €", sizes: ["S", "XS", "M", "L", "13-14 ans", "XL", "2XL", "5-6 ans"] },
+        v:  { name: "Veste", price: "20 €", sizes: ["M", "13-14 ans", "XS", "S", "XL", "L", "5-6 ans"] },
+        p:  { name: "Pantalon", price: "20 €", sizes: ["13-14 ans", "XS", "XL", "2XL", "S"] },
+        d:  { name: "Doudoune", price: "66,50 €", sizes: ["L"] },
+        k:  { name: "K-Way", price: "45,50 €", sizes: ["XL", "M", "L"] }
     };
 
-    // Lire le paramètre ?id=
-    const urlParams = new URLSearchParams(window.location.search);
-    const id = urlParams.get("id");
+    const product = articles[id];
 
-    const item = items[id];
+    if (!product) {
+        document.body.innerHTML = "<h1>Article introuvable</h1>";
+    } else {
+        document.getElementById("articleName").textContent = product.name;
+        document.getElementById("articlePrice").textContent = product.price;
 
-    // Remplir la page
-    if (item) {
-        document.getElementById("title").textContent = item.name;
-        document.getElementById("price").textContent = item.price;
+        const sizeSelect = document.getElementById("sizes");
 
-        const sizeSelect = document.getElementById("size");
-        item.sizes.forEach(size => {
+        product.sizes.forEach(size => {
             const option = document.createElement("option");
+            option.value = size;
             option.textContent = size;
             sizeSelect.appendChild(option);
         });
-    } else {
-        document.body.innerHTML = "<h1>Article introuvable</h1>";
     }
 </script>
 
