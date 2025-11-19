@@ -1,1 +1,97 @@
+import React, { useEffect, useState } from 'react';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+
+// Default export a React component for the new page
+// Usage: place this component in a route (e.g. /graphique) or in a page wrapper
+
+export default function GraphiqueFlorangePage({ dataUrl = '/data/florange.json' }) {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    // Try to fetch JSON-converted data from the server first.
+    // If you don't have a server endpoint, the component will use the embedded sampleData below.
+    let mounted = true;
+    fetch(dataUrl)
+      .then((r) => {
+        if (!r.ok) throw new Error('no JSON data at ' + dataUrl);
+        return r.json();
+      })
+      .then((json) => { if (mounted) { setData(json); setLoading(false); } })
+      .catch(() => {
+        // fallback to embedded sample data (replace with your ODS-exported JSON/CSV)
+        if (mounted) {
+          setError('Could not fetch remote data; using sample dataset.');
+          setData(sampleData);
+          setLoading(false);
+        }
+      });
+    return () => { mounted = false; };
+  }, [dataUrl]);
+
+  if (loading) return (
+    <main className="min-h-screen flex items-center justify-center p-6">
+      <div className="text-center">
+        <div className="animate-pulse text-lg">Chargement du graphique…</div>
+      </div>
+    </main>
+  );
+
+  return (
+    <main className="min-h-screen bg-gray-50 p-6">
+      <div className="max-w-5xl mx-auto bg-white rounded-2xl shadow-md p-6">
+        <header className="mb-4">
+          <h1 className="text-2xl font-semibold">Graphique — Florange</h1>
+          <p className="text-sm text-gray-600">Affiche les données extraites (remplacez <code>/data/florange.json</code> par vos données).</p>
+          {error && <p className="text-xs text-yellow-700 mt-2">{error}</p>}
+        </header>
+
+        <section className="h-96">
+          <ResponsiveContainer width="100%" height="100%">
+            <LineChart data={data} margin={{ top: 20, right: 30, left: 0, bottom: 5 }}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="label" />
+              <YAxis />
+              <Tooltip />
+              <Legend />
+              {/*
+                Update the dataKey of Line components below to match your numeric columns from the ODS.
+                Example: <Line type="monotone" dataKey="value" stroke="#8884d8" strokeWidth={2} />
+              */}
+              <Line type="monotone" dataKey="value" stroke="#8884d8" strokeWidth={2} dot={{ r: 3 }} />
+              {/* Add more lines if you have additional series: */}
+              {/* <Line type="monotone" dataKey="serie2" stroke="#82ca9d" /> */}
+            </LineChart>
+          </ResponsiveContainer>
+        </section>
+
+        <footer className="mt-6 text-sm text-gray-600">
+          <p>Instructions rapides:</p>
+          <ol className="list-decimal ml-6 mt-2">
+            <li>Exportez votre feuille ODS en JSON (ou CSV puis convertissez) et servez-la depuis <code>/data/florange.json</code>.</li>
+            <li>Assurez-vous que chaque objet a une propriété <code>label</code> (axe X) et une propriété numérique (par défaut <code>value</code>).</li>
+            <li>Si vous préférez CSV, vous pouvez charger et parser le CSV côté client ou côté serveur et fournir JSON à ce composant.</li>
+          </ol>
+          <p className="mt-2">Besoin que j'extraie directement les données depuis votre fichier ODS et que je génère le JSON prêt à être servi ? Dites-moi — je peux le faire.</p>
+        </footer>
+      </div>
+    </main>
+  );
+}
+
+
+// ------------------------
+// Exemple de jeu de données (fallback)
+// Remplacez par vos données réelles extraites de l'ODS
+// Format attendu: [{ label: 'Jan', value: 123 }, { label: 'Feb', value: 150 }, ...]
+const sampleData = [
+  { label: '2019-01', value: 120 },
+  { label: '2019-02', value: 132 },
+  { label: '2019-03', value: 101 },
+  { label: '2019-04', value: 134 },
+  { label: '2019-05', value: 90 },
+  { label: '2019-06', value: 230 },
+  { label: '2019-07', value: 210 },
+];
 
