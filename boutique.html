@@ -5,19 +5,19 @@ export default function BoutiquePage() {
   return (
     <main className="min-h-screen bg-orange-600 flex flex-col items-center justify-start py-16 px-4 text-white">
 
-      {/* Logo */}
+      {/* Logo rond centré */}
       <div className="flex flex-col items-center mb-10">
-        <div className="w-40 h-40 rounded-full bg-black border-4 border-white flex items-center justify-center shadow-xl">
+        <div className="w-40 h-40 rounded-full bg-black border-4 border-white flex items-center justify-center shadow-xl overflow-hidden">
           <img
-            src="/logo-lion.png"  // Remplace ce fichier par ton logo
-            alt="Logo Boutique"
-            className="w-28 h-28 object-contain"
+            src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/465817372_1057114252579709_1675475728144681515_n.jpg"
+            alt="Logo US Florange"
+            className="w-full h-full object-cover"
           />
         </div>
         <h1 className="text-5xl font-bold mt-6">Boutique</h1>
       </div>
 
-      {/* Lien retour */}
+      {/* Retour accueil */}
       <Link
         to="/"
         className="text-xl mt-4 hover:underline flex items-center gap-2"
@@ -25,8 +25,8 @@ export default function BoutiquePage() {
         <span className="text-2xl">←</span> Retour à l'accueil
       </Link>
 
-      {/* Produits */}
-      <section className="mt-16 w-full max-w-4xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 p-4">
+      {/* Section produits */}
+      <section className="mt-16 w-full max-w-5xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 p-4">
 
         {/* Exemple de produit */}
         <div className="bg-white text-black rounded-2xl shadow-lg p-4 flex flex-col items-center">
@@ -44,7 +44,7 @@ export default function BoutiquePage() {
           </button>
         </div>
 
-        {/* Pour ajouter d’autres produits, copie/colle ce bloc 👆 */}
+        {/* Copie/colle ce bloc pour ajouter d'autres produits */}
 
       </section>
     </main>
