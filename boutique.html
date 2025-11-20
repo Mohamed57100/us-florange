@@ -24,7 +24,6 @@
             border-radius: 50%;
             border: 6px solid white;
             object-fit: cover;
-            margin-bottom: 10px;
         }
 
         .retour {
@@ -38,11 +37,12 @@
 
         h1 {
             font-size: 60px;
-            margin-top: 10px;
+            margin-top: 20px;
             margin-bottom: 5px;
             font-weight: bold;
         }
 
+        /* Grand rectangle blanc */
         .content-box {
             width: 90%;
             margin: 20px auto;
@@ -62,12 +62,11 @@
         }
 
         .card {
-            background: #f37021;
+            background: #ffffffdd;
             padding: 20px;
             border-radius: 20px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.25);
             cursor: pointer;
-            color: white;
         }
 
         .card h2 {
@@ -85,13 +84,14 @@
 <body>
 
     <header>
-        <img class="logo" src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/465817372_1057114252579709_1675475728144681515_n.jpg" alt="Logo" />
-
         <h1>Boutique</h1>
 
         <a href="index.html" class="retour">← Retour à l'accueil</a>
+
+        <img class="logo" src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/465817372_1057114252579709_1675475728144681515_n.jpg" alt="Logo" />
     </header>
 
+    <!-- Grand rectangle avec fond blanc -->
     <div class="content-box">
 
         <div class="container">
@@ -108,7 +108,7 @@
 
             <div class="card" onclick="openArticle('v')">
                 <h2>Veste</h2>
-                <div class="price">20 €</div>
+                <divint>20 €</div>
             </div>
 
             <div class="card" onclick="openArticle('p')">
@@ -135,7 +135,7 @@
             <!-- 🆕 ARTICLE : SWEAT -->
             <div class="card" onclick="openArticle('s')">
                 <h2>Sweat</h2>
-                <div class="price">25 €</div>
+                <div class="price">20 €</div>
             </div>
 
         </div>
