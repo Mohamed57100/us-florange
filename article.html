@@ -32,6 +32,7 @@
             padding: 10px;
             border-radius: 10px;
             font-size: 18px;
+            width: 80%;
         }
 
         a {
@@ -41,6 +42,12 @@
             font-size: 28px;
             text-decoration: none;
         }
+
+        .label {
+            font-size: 22px;
+            margin-bottom: 10px;
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -49,8 +56,15 @@
     <h2 id="articleName"></h2>
     <div class="price" id="articlePrice"></div>
 
-    <label for="sizes">Choisir une taille :</label>
-    <br><br>
+    <!-- Sélecteur TYPE -->
+    <div id="typeContainer" style="display:none;">
+        <span class="label">Type :</span>
+        <select id="typeSelect"></select>
+        <br><br>
+    </div>
+
+    <!-- Sélecteur TAILLE -->
+    <span class="label">Choisir une taille :</span>
     <select id="sizes"></select>
 </div>
 
@@ -65,28 +79,45 @@
         mn: { name: "Maillot Noir", price: "15 €", sizes: ["S", "XS", "M", "L", "13-14 ans", "XL", "2XL", "5-6 ans"] },
         v:  { name: "Veste", price: "20 €", sizes: ["M", "13-14 ans", "XS", "S", "XL", "L", "5-6 ans"] },
         p:  { name: "Pantalon", price: "20 €", sizes: ["13-14 ans", "XS", "XL", "2XL", "S"] },
-        d:  { name: "Doudoune", price: "66,50 €", sizes: ["L"] },
+
+        /* ----------------------- */
+        /*         DOUDOUNE        */
+        /* ----------------------- */
+        d:  { 
+            name: "Doudoune", 
+            price: "66,50 €",
+            type: ["Normale", "Bande blanche"],
+            sizes: {
+                "Normale": ["L"],
+                "Bande blanche": ["L"]
+            }
+        },
+
+        /* ----------------------- */
+        /*           K-WAY         */
+        /* ----------------------- */
         k:  { name: "K-Way", price: "45,50 €", sizes: ["XL", "M", "L"] },
 
-        /* 🆕 AJOUT : ÉCHARPE */
+        /* ----------------------- */
+        /*         ECHARPE         */
+        /* ----------------------- */
         e: { 
             name: "Écharpe", 
             price: "10 €", 
             sizes: ["Taille unique"] 
         },
 
-        /* 🆕 AJOUT : SWEAT */
+        /* ----------------------- */
+        /*          SWEAT          */
+        /* ----------------------- */
         s: { 
             name: "Sweat", 
-            price: "20 €", 
-            sizes: ["9-10 ans", "11-12 ans", "XS", "M"] 
-        },
-
-        /* 🆕 AJOUT : SWEAT BANDE BLANCHE */
-        sb: { 
-            name: "Sweat bande blanche", 
-            price: "20 €", 
-            sizes: ["XS", "S"] 
+            price: "20 €",
+            type: ["Normal", "Bande blanche"],
+            sizes: {
+                "Normal": ["9-10 ans", "11-12 ans", "XS", "M"],
+                "Bande blanche": ["XS", "S"]
+            }
         }
     };
 
@@ -99,13 +130,43 @@
         document.getElementById("articlePrice").textContent = product.price;
 
         const sizeSelect = document.getElementById("sizes");
+        const typeContainer = document.getElementById("typeContainer");
+        const typeSelect = document.getElementById("typeSelect");
 
-        product.sizes.forEach(size => {
-            const option = document.createElement("option");
-            option.value = size;
-            option.textContent = size;
-            sizeSelect.appendChild(option);
-        });
+        /* Gestion du TYPE pour sweat & doudoune */
+        if (product.type) {
+            typeContainer.style.display = "block";
+
+            product.type.forEach(t => {
+                let opt = document.createElement("option");
+                opt.value = t;
+                opt.textContent = t;
+                typeSelect.appendChild(opt);
+            });
+
+            function loadSizes() {
+                sizeSelect.innerHTML = "";
+                const selectedType = typeSelect.value;
+                product.sizes[selectedType].forEach(size => {
+                    let opt = document.createElement("option");
+                    opt.value = size;
+                    opt.textContent = size;
+                    sizeSelect.appendChild(opt);
+                });
+            }
+
+            typeSelect.addEventListener("change", loadSizes);
+            loadSizes(); // chargement initial
+
+        } else {
+            /* Articles sans type */
+            product.sizes.forEach(size => {
+                let opt = document.createElement("option");
+                opt.value = size;
+                opt.textContent = size;
+                sizeSelect.appendChild(opt);
+            });
+        }
     }
 </script>
 
