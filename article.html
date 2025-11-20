@@ -89,14 +89,14 @@
             type: ["Normale", "Bande blanche"],
             sizes: {
                 "Normale": ["L"],
-                "Bande blanche": ["L"]
+                "Bande blanche": ["XL", "L", "M", "S", "XS"]
             }
         },
 
         /* ----------------------- */
         /*           K-WAY         */
         /* ----------------------- */
-        k:  { name: "K-Way", price: "45,50 €", sizes: ["XL", "M", "L"] },
+        k:  { name: "K-Way", price: "45,50 €", sizes: ["XL", "M", "L", "XS"] },
 
         /* ----------------------- */
         /*         ECHARPE         */
@@ -156,10 +156,9 @@
             }
 
             typeSelect.addEventListener("change", loadSizes);
-            loadSizes(); // chargement initial
+            loadSizes();
 
         } else {
-            /* Articles sans type */
             product.sizes.forEach(size => {
                 let opt = document.createElement("option");
                 opt.value = size;
