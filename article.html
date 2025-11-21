@@ -80,6 +80,23 @@
 
         a:hover { opacity: 0.8; }
 
+        /* BOUTON RESERVER */
+        #reserveBtn {
+            margin-top: 25px;
+            padding: 15px 25px;
+            background-color: #f37021;
+            color: white;
+            font-size: 22px;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        #reserveBtn:hover {
+            opacity: 0.85;
+        }
+
     </style>
 </head>
 <body>
@@ -101,6 +118,10 @@
     <!-- Sélecteur TAILLE -->
     <span class="label">Choisir une taille :</span>
     <select id="sizes"></select>
+
+    <!-- BOUTON RESERVER -->
+    <button id="reserveBtn">Réserver</button>
+
 </div>
 
 <a href="boutique.html">← Retour</a>
@@ -115,9 +136,7 @@
         v:  { name: "Veste", price: "20 €", sizes: ["M", "13-14 ans", "XS", "S", "XL", "L", "5-6 ans"] },
         p:  { name: "Pantalon", price: "20 €", sizes: ["13-14 ans", "XS", "XL", "2XL", "S"] },
 
-        /* ----------------------- */
-        /*         DOUDOUNE        */
-        /* ----------------------- */
+        /* DOUDOUNE */
         d:  { 
             name: "Doudoune", 
             price: "66,50 €",
@@ -128,23 +147,17 @@
             }
         },
 
-        /* ----------------------- */
-        /*           K-WAY         */
-        /* ----------------------- */
+        /* K-WAY */
         k:  { name: "K-Way", price: "45,50 €", sizes: ["XL", "M", "L", "XS"] },
 
-        /* ----------------------- */
-        /*         ECHARPE         */
-        /* ----------------------- */
+        /* ÉCHARPE */
         e: { 
             name: "Écharpe", 
             price: "10 €", 
             sizes: ["Taille unique"] 
         },
 
-        /* ----------------------- */
-        /*          SWEAT          */
-        /* ----------------------- */
+        /* SWEAT */
         s: { 
             name: "Sweat", 
             price: "20 €",
@@ -202,6 +215,29 @@
             });
         }
     }
+
+    /* --- RÉSERVATION WHATSAPP --- */
+    const reserveBtn = document.getElementById("reserveBtn");
+
+    reserveBtn.addEventListener("click", () => {
+        let article = product.name;
+        let price = product.price;
+        let size = document.getElementById("sizes").value;
+        let type = product.type ? document.getElementById("typeSelect").value : "Aucun";
+
+        let message =
+            `Bonjour, je souhaite réserver :%0A` +
+            `🛍️ Article : ${article}%0A` +
+            (product.type ? `🔸 Type : ${type}%0A` : ``) +
+            `📏 Taille : ${size}%0A` +
+            `💶 Prix : ${price}`;
+
+        let phone = "33700000000"; // CHANGE CE NUMÉRO !
+
+        let url = `https://wa.me/${phone}?text=${message}`;
+        window.location.href = url;
+    });
+
 </script>
 
 </body>
