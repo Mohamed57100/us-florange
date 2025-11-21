@@ -227,12 +227,12 @@
 
         let message =
             `Bonjour, je souhaite réserver :%0A` +
-            `🛍️ Article : ${article}%0A` +
-            (product.type ? `🔸 Type : ${type}%0A` : ``) +
-            `📏 Taille : ${size}%0A` +
-            `💶 Prix : ${price}`;
+            `Article : ${article}%0A` +
+            (product.type ? `Type : ${type}%0A` : ``) +
+            `Taille : ${size}%0A` +
+            `Prix : ${price}`;
 
-        let phone = "33647018376"; // NUMÉRO WHATSAPP AJOUTÉ
+        let phone = "33647018376";
 
         let url = `https://wa.me/${phone}?text=${message}`;
         window.location.href = url;
