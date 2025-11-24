@@ -14,7 +14,6 @@
             text-align: center;
         }
 
-        /* --- Logo rond --- */
         .logo {
             width: 150px;
             height: 150px;
@@ -25,7 +24,6 @@
             margin-bottom: 10px;
         }
 
-        /* --- Conteneur carte (design modernisé) --- */
         .card {
             background: white;
             padding: 30px;
@@ -51,6 +49,13 @@
             font-weight: bold;
         }
 
+        .product-img {
+            width: 100%;
+            max-width: 330px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+        }
+
         select {
             padding: 12px;
             border-radius: 12px;
@@ -68,7 +73,6 @@
             font-weight: bold;
         }
 
-        /* --- Bouton retour --- */
         a {
             display: inline-block;
             margin-top: 10px;
@@ -78,9 +82,6 @@
             font-weight: bold;
         }
 
-        a:hover { opacity: 0.8; }
-
-        /* BOUTON RESERVER */
         #reserveBtn {
             margin-top: 25px;
             padding: 15px 25px;
@@ -92,34 +93,27 @@
             cursor: pointer;
             font-weight: bold;
         }
-
-        #reserveBtn:hover {
-            opacity: 0.85;
-        }
-
     </style>
 </head>
 <body>
 
-<!-- LOGO AJOUTÉ ICI -->
 <img class="logo" src="https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/465817372_1057114252579709_1675475728144681515_n.jpg" alt="Logo">
 
 <div class="card">
+    <img id="articleImg" class="product-img" src="" alt="Article">
+
     <h2 id="articleName"></h2>
     <div class="price" id="articlePrice"></div>
 
-    <!-- Sélecteur TYPE -->
     <div id="typeContainer" style="display:none;">
         <span class="label">Type :</span>
         <select id="typeSelect"></select>
         <br><br>
     </div>
 
-    <!-- Sélecteur TAILLE -->
     <span class="label">Choisir une taille :</span>
     <select id="sizes"></select>
 
-    <!-- BOUTON RESERVER -->
     <button id="reserveBtn">Réserver</button>
 
 </div>
@@ -131,40 +125,34 @@
     const id = params.get("id");
 
     const articles = {
-        mo: { name: "Maillot Orange", price: "15 €", sizes: ["S", "XS", "M", "L", "13-14 ans", "XL", "2XL", "5-6 ans"] },
-        mn: { name: "Maillot Noir", price: "15 €", sizes: ["S", "XS", "M", "L", "13-14 ans", "XL", "2XL", "5-6 ans"] },
-        v:  { name: "Veste", price: "20 €", sizes: ["M", "13-14 ans", "XS", "S", "XL", "L", "5-6 ans"] },
-        p:  { name: "Pantalon", price: "20 €", sizes: ["13-14 ans", "XS", "XL", "2XL", "S"] },
+        mo: { name: "Maillot Orange", price: "15 €", img: "https://raw.githubusercontent.com/Mohamed57100/us-florange/main/maillot_orange.jpg", sizes: ["S","XS","M","L","13-14 ans","XL","2XL","5-6 ans"] },
+        mn: { name: "Maillot Noir", price: "15 €", img: "https://raw.githubusercontent.com/Mohamed57100/us-florange/main/maillot_noir.jpg", sizes: ["S","XS","M","L","13-14 ans","XL","2XL","5-6 ans"] },
+        v:  { name: "Veste", price: "20 €", img: "https://raw.githubusercontent.com/Mohamed57100/us-florange/main/veste.jpg", sizes: ["M","13-14 ans","XS","S","XL","L","5-6 ans"] },
+        p:  { name: "Pantalon", price: "20 €", img: "https://raw.githubusercontent.com/Mohamed57100/us-florange/main/pantalon.jpg", sizes: ["13-14 ans","XS","XL","2XL","S"] },
 
-        /* DOUDOUNE */
         d:  { 
             name: "Doudoune", 
             price: "66,50 €",
+            img: "https://raw.githubusercontent.com/Mohamed57100/us-florange/main/doudoune.jpg",
             type: ["Normale", "Bande blanche"],
             sizes: {
                 "Normale": ["L"],
-                "Bande blanche": ["XL", "L", "M", "S", "XS"]
+                "Bande blanche": ["XL","L","M","S","XS"]
             }
         },
 
-        /* K-WAY */
-        k:  { name: "K-Way", price: "45,50 €", sizes: ["XL", "M", "L", "XS"] },
+        k:  { name: "K-Way", price: "45,50 €", img: "https://raw.githubusercontent.com/Mohamed57100/us-florange/main/kway.jpg", sizes: ["XL","M","L","XS"] },
 
-        /* ÉCHARPE */
-        e: { 
-            name: "Écharpe", 
-            price: "10 €", 
-            sizes: ["Taille unique"] 
-        },
+        e: { name: "Écharpe", price: "10 €", img: "https://raw.githubusercontent.com/Mohamed57100/us-florange/main/echarpe.jpg", sizes: ["Taille unique"] },
 
-        /* SWEAT */
         s: { 
             name: "Sweat", 
             price: "20 €",
+            img: "https://raw.githubusercontent.com/Mohamed57100/us-florange/main/sweat.jpg",
             type: ["Normal", "Bande blanche"],
             sizes: {
-                "Normal": ["9-10 ans", "11-12 ans", "XS", "M"],
-                "Bande blanche": ["XS", "S"]
+                "Normal": ["9-10 ans","11-12 ans","XS","M"],
+                "Bande blanche": ["XS","S"]
             }
         }
     };
@@ -176,12 +164,12 @@
     } else {
         document.getElementById("articleName").textContent = product.name;
         document.getElementById("articlePrice").textContent = product.price;
+        document.getElementById("articleImg").src = product.img;
 
         const sizeSelect = document.getElementById("sizes");
         const typeContainer = document.getElementById("typeContainer");
         const typeSelect = document.getElementById("typeSelect");
 
-        /* Gestion du TYPE pour sweat & doudoune */
         if (product.type) {
             typeContainer.style.display = "block";
 
@@ -216,7 +204,6 @@
         }
     }
 
-    /* --- RÉSERVATION WHATSAPP --- */
     const reserveBtn = document.getElementById("reserveBtn");
 
     reserveBtn.addEventListener("click", () => {
@@ -237,7 +224,6 @@
         let url = `https://wa.me/${phone}?text=${message}`;
         window.location.href = url;
     });
-
 </script>
 
 </body>
