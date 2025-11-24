@@ -54,6 +54,7 @@
             max-width: 330px;
             border-radius: 20px;
             margin-bottom: 20px;
+            border:5px solid white;
         }
 
         select {
@@ -125,31 +126,72 @@
     const id = params.get("id");
 
     const articles = {
-        mo: { name: "Maillot Orange", price: "15 €", img: "https://raw.githubusercontent.com/Mohamed57100/us-florange/main/maillot_orange.jpg", sizes: ["S","XS","M","L","13-14 ans","XL","2XL","5-6 ans"] },
-        mn: { name: "Maillot Noir", price: "15 €", img: "https://raw.githubusercontent.com/Mohamed57100/us-florange/main/maillot_noir.jpg", sizes: ["S","XS","M","L","13-14 ans","XL","2XL","5-6 ans"] },
-        v:  { name: "Veste", price: "20 €", img: "https://raw.githubusercontent.com/Mohamed57100/us-florange/main/veste.jpg", sizes: ["M","13-14 ans","XS","S","XL","L","5-6 ans"] },
-        p:  { name: "Pantalon", price: "20 €", img: "https://raw.githubusercontent.com/Mohamed57100/us-florange/main/pantalon.jpg", sizes: ["13-14 ans","XS","XL","2XL","S"] },
+        mo: { 
+            name: "Maillot Orange", 
+            price: "15 €", 
+            img: "https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/Maillot%20orange.png",
+            sizes: ["S","XS","M","L","13-14 ans","XL","2XL","5-6 ans"] 
+        },
 
-        d:  { 
+        mn: { 
+            name: "Maillot Noir", 
+            price: "15 €", 
+            img: "https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/Maillot%20Noir.png",
+            sizes: ["S","XS","M","L","13-14 ans","XL","2XL","5-6 ans"] 
+        },
+
+        v: { 
+            name: "Veste", 
+            price: "20 €", 
+            img: "https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/Veste.png",
+            sizes: ["M","13-14 ans","XS","S","XL","L","5-6 ans"] 
+        },
+
+        p: { 
+            name: "Pantalon", 
+            price: "20 €", 
+            img: "https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/Pantalon.png",
+            sizes: ["13-14 ans","XS","XL","2XL","S"] 
+        },
+
+        d: { 
             name: "Doudoune", 
             price: "66,50 €",
-            img: "https://raw.githubusercontent.com/Mohamed57100/us-florange/main/doudoune.jpg",
+            img: "https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/Doudoune.png",
             type: ["Normale", "Bande blanche"],
+            images: {
+                "Normale": "https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/Doudoune.png",
+                "Bande blanche": "https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/Doudoune%20bande%20blanche.png"
+            },
             sizes: {
                 "Normale": ["L"],
                 "Bande blanche": ["XL","L","M","S","XS"]
             }
         },
 
-        k:  { name: "K-Way", price: "45,50 €", img: "https://raw.githubusercontent.com/Mohamed57100/us-florange/main/kway.jpg", sizes: ["XL","M","L","XS"] },
+        k: { 
+            name: "K-Way", 
+            price: "45,50 €", 
+            img: "https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/K-Way.png",
+            sizes: ["XL","M","L","XS"] 
+        },
 
-        e: { name: "Écharpe", price: "10 €", img: "https://raw.githubusercontent.com/Mohamed57100/us-florange/main/echarpe.jpg", sizes: ["Taille unique"] },
+        e: { 
+            name: "Écharpe", 
+            price: "10 €", 
+            img: "https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/Echarpe.png",
+            sizes: ["Taille unique"] 
+        },
 
         s: { 
             name: "Sweat", 
             price: "20 €",
-            img: "https://raw.githubusercontent.com/Mohamed57100/us-florange/main/sweat.jpg",
+            img: "https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/Sweat.png",
             type: ["Normal", "Bande blanche"],
+            images: {
+                "Normal": "https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/Sweat.png",
+                "Bande blanche": "https://raw.githubusercontent.com/Mohamed57100/us-florange/refs/heads/main/Sweat%20bande%20blanche.png"
+            },
             sizes: {
                 "Normal": ["9-10 ans","11-12 ans","XS","M"],
                 "Bande blanche": ["XS","S"]
@@ -183,6 +225,11 @@
             function loadSizes() {
                 sizeSelect.innerHTML = "";
                 const selectedType = typeSelect.value;
+
+                if (product.images) {
+                    document.getElementById("articleImg").src = product.images[selectedType];
+                }
+
                 product.sizes[selectedType].forEach(size => {
                     let opt = document.createElement("option");
                     opt.value = size;
